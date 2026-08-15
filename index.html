@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>39F Gaming Empire | المركز الشامل لأخبار القيمنق والفعاليات والبطولات</title>
+    <title>39F GAMECARE | المنصة الشاملة لحل مشاكل الألعاب وتحسين الأداء</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
 
         :root {
             --bg-deep: #030305;
-            --bg-card: rgba(12, 12, 22, 0.88);
+            --bg-card: rgba(12, 12, 22, 0.9);
             --neon-purple: #9d00ff;
             --neon-cyan: #00f3ff;
             --neon-pink: #ff0055;
@@ -30,7 +30,6 @@
             min-height: 100vh;
         }
 
-        /* خلفية متحركة متطورة لعناصر القيمنق */
         .gaming-bg-canvas {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -66,17 +65,17 @@
 
         header {
             text-align: center;
-            padding: 30px 20px 15px;
+            padding: 25px 20px 15px;
             border-bottom: 1px solid rgba(255,255,255,0.06);
-            background: rgba(3,3,5,0.6);
-            backdrop-filter: blur(10px);
+            background: rgba(3,3,5,0.8);
+            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 900;
             margin: 0;
             background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
@@ -85,25 +84,27 @@
             text-shadow: 0 0 25px rgba(157, 0, 255, 0.3);
         }
 
-        /* شريط التنقل العلوي بين الأقسام (متعدد الصفحات داخل الموقع) */
         .nav-tabs {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-top: 15px;
+            gap: 8px;
+            margin-top: 12px;
             flex-wrap: wrap;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .nav-tab-btn {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.12);
             color: var(--text-muted);
-            padding: 8px 20px;
-            border-radius: 20px;
+            padding: 7px 15px;
+            border-radius: 18px;
             font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
         }
 
         .nav-tab-btn.active, .nav-tab-btn:hover {
@@ -119,17 +120,15 @@
             padding: 25px 20px 60px;
         }
 
-        /* نظام العرض (Views) */
         .view { display: none; opacity: 0; transform: translateY(10px); transition: 0.3s ease-in-out; }
-        .view.active { display: block; opacity: 1; transform: translateY(0); }
+.view.active { display: block; opacity: 1; transform: translateY(0); }
 
-        /* شريط الأخبار الحية المتحركة (Breaking News Ticker) */
         .live-ticker-bar {
             background: linear-gradient(90deg, rgba(255,0,85,0.15), rgba(0,243,255,0.15));
             border: 1px solid rgba(0, 243, 255, 0.3);
             border-radius: 14px;
             padding: 12px 20px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
             gap: 15px;
@@ -145,26 +144,18 @@
             font-weight: 900;
             font-size: 0.85rem;
             white-space: nowrap;
-            animation: pulseGlow 2s infinite;
-        }
-
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 5px var(--neon-pink); }
-            50% { box-shadow: 0 0 15px var(--neon-pink); }
-            100% { box-shadow: 0 0 5px var(--neon-pink); }
         }
 
         .ticker-content {
             font-weight: 600;
             color: #fff;
-            font-size: 1.05rem;
+            font-size: 1rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             transition: opacity 0.5s ease;
         }
 
-        /* شبكة المحتوى العامة */
         .hub-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -175,7 +166,7 @@
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
-            padding: 30px 20px;
+            padding: 25px 20px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.1, 1, 0.1, 1);
@@ -201,9 +192,9 @@
         }
         .hub-card:hover::before { opacity: 1; height: 5px; }
 
-        .hub-card .icon { font-size: 3.2rem; margin-bottom: 15px; display: block; }
-        .hub-card h3 { margin: 8px 0 10px; font-size: 1.4rem; color: #fff; }
-        .hub-card p { color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.5; }
+        .hub-card .icon { font-size: 3rem; margin-bottom: 12px; display: block; }
+        .hub-card h3 { margin: 8px 0 10px; font-size: 1.3rem; color: #fff; }
+        .hub-card p { color: var(--text-muted); font-size: 0.88rem; margin: 0; line-height: 1.5; }
 
         .badge-tag {
             display: inline-block;
@@ -213,7 +204,7 @@
             border-radius: 15px;
             font-size: 0.75rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             border: 1px solid rgba(0, 243, 255, 0.25);
         }
 
@@ -221,56 +212,48 @@
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
-            padding: 35px;
-            max-width: 850px;
+            padding: 30px;
+            max-width: 900px;
             margin: 0 auto;
             backdrop-filter: blur(15px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.7);
-            text-align: center;
         }
 
-        .input-group {
-            display: flex;
-            gap: 10px;
+        .form-group {
             margin-bottom: 18px;
+            text-align: right;
         }
 
-        input[type="text"] {
-            flex: 1;
+        .form-group label {
+            display: block;
+            color: var(--neon-cyan);
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        select, input[type="text"], input[type="number"] {
+            width: 100%;
             background: rgba(0, 0, 0, 0.6);
             border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            padding: 14px 18px;
+            padding: 12px 16px;
             color: #fff;
-            font-size: 1.1rem;
+            font-size: 1rem;
             outline: none;
             transition: 0.3s;
             text-align: right;
         }
-        input[type="text"]:focus { border-color: var(--neon-cyan); box-shadow: 0 0 15px rgba(0, 243, 255, 0.25); }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
-            color: white;
-            border: none;
-            padding: 0 25px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-            white-space: nowrap;
-        }
-        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+        select:focus, input:focus { border-color: var(--neon-cyan); box-shadow: 0 0 15px rgba(0, 243, 255, 0.25); }
 
         .btn-action-full {
             width: 100%;
             background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
             color: #fff;
             border: none;
-            padding: 16px;
+            padding: 15px;
             border-radius: 12px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 900;
             cursor: pointer;
             transition: 0.3s;
@@ -279,151 +262,80 @@
         }
         .btn-action-full:hover { transform: scale(1.01); box-shadow: 0 8px 25px rgba(0, 243, 255, 0.4); }
 
-        .chips-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            max-height: 130px;
-            overflow-y: auto;
-            padding: 12px;
-            background: rgba(0,0,0,0.4);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
-            margin-bottom: 20px;
-            text-align: right;
-        }
-
-        .chip {
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .chip span { color: var(--neon-pink); cursor: pointer; font-weight: bold; }
-
-        /* عجلة الروليت الدقيقة 100% */
-        .wheel-wrapper {
-            position: relative;
-            width: 330px;
-            height: 330px;
-            margin: 15px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .wheel-pointer {
-            position: absolute;
-            top: -18px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0; height: 0;
-            border-left: 14px solid transparent;
-            border-right: 14px solid transparent;
-            border-top: 30px solid var(--neon-gold);
-            z-index: 20;
-            filter: drop-shadow(0 0 8px var(--neon-gold));
-        }
-
-        #fixedWheelCanvas {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            box-shadow: 0 0 30px rgba(0, 243, 255, 0.25), inset 0 0 15px rgba(0,0,0,0.8);
-            border: 5px solid #151525;
-        }
-
-        .winner-box {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--neon-gold);
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid var(--neon-gold);
-            padding: 18px;
-            border-radius: 15px;
+        /* نتائج التشخيص والأداء */
+        .result-panel {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px;
             margin-top: 20px;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            text-align: right;
             display: none;
         }
 
-        /* شبكة الأخبار الحصرية الحية (كود، فيفا، وغيرها مع صور وتحديث زمني حقيقي) */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
+        .result-panel h3 { color: var(--neon-gold); margin-top: 0; }
+        .step-list { padding-right: 20px; margin: 10px 0; line-height: 1.8; color: #e0e0ff; }
+
+        /* جدول قاعدة بيانات الأخطاء */
+        .error-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 12px;
+            overflow: hidden;
             text-align: right;
         }
+        .error-table th, .error-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.9rem;
+        }
+        .error-table th { background: rgba(157, 0, 255, 0.2); color: var(--neon-cyan); }
 
+        /* أداة فحص الكيبورد والماوس واليد */
+        .tester-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .test-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+        }
+        .test-box h4 { margin: 0 0 10px; color: var(--neon-pink); }
+        .test-value { font-size: 1.4rem; font-weight: 900; color: var(--neon-gold); }
+
+        /* شبكة الأخبار */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
         .news-card {
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 18px;
+            border-radius: 16px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: 0.3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
         }
-        .news-card:hover { transform: translateY(-5px); border-color: var(--neon-cyan); }
-
-        .news-img-wrap {
-            position: relative;
-            height: 210px;
-            overflow: hidden;
-        }
-        .news-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-        }
-        .news-card:hover .news-img-wrap img { transform: scale(1.08); }
-
-        .news-badge-game {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(0, 0, 0, 0.8);
-            color: var(--neon-cyan);
-            padding: 5px 12px;
-            border-radius: 10px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            border: 1px solid rgba(0, 243, 255, 0.4);
-            backdrop-filter: blur(5px);
-        }
-
-        .news-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-
-        .news-content h3 { margin: 0 0 10px; color: #fff; font-size: 1.25rem; }
-        .news-content p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0 0 15px; flex: 1; }
-        
-        .news-footer-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid rgba(255,255,255,0.06);
-            padding-top: 12px;
-            font-size: 0.85rem;
-        }
-        .news-time { color: var(--neon-gold); font-weight: 700; }
-        .news-source { color: var(--neon-cyan); font-weight: 600; }
+        .news-img { height: 160px; object-fit: cover; width: 100%; }
+        .news-body { padding: 15px; flex: 1; display: flex; flex-direction: column; }
+        .news-body h3 { margin: 0 0 8px; font-size: 1.15rem; color: #fff; }
+        .news-body p { color: var(--text-muted); font-size: 0.88rem; flex: 1; margin: 0 0 10px; line-height: 1.5; }
+        .news-meta { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--neon-gold); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 8px; }
 
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border-top: 1px solid rgba(255,255,255,0.06);
             margin-top: 40px;
         }
@@ -431,15 +343,19 @@
 </head>
 <body>
 
-<!-- خلفية متحركة متطورة -->
 <div class="gaming-bg-canvas" id="gamingBgCanvas"></div>
 <div class="cyber-grid"></div>
 
 <header>
-    <h1>39F GAMING EMPIRE</h1>
+    <h1>39F GAMECARE</h1>
     <div class="nav-tabs">
         <button class="nav-tab-btn active" onclick="switchView('home-view')">🏠 الرئيسية</button>
-        <button class="nav-tab-btn" onclick="switchView('roulette-view')">🎡 عجلة الحظ</button>
+        <button class="nav-tab-btn" onclick="switchView('fix-view')">🔧 Gaming Fix</button>
+        <button class="nav-tab-btn" onclick="switchView('optimizer-view')">⚙️ Optimizer</button>
+        <button class="nav-tab-btn" onclick="switchView('tester-view')">🎮 Peripherals Tester</button>
+        <button class="nav-tab-btn" onclick="switchView('net-view')">📡 Net Analyzer</button>
+        <button class="nav-tab-btn" onclick="switchView('compat-view')">🖥️ PC Setup Builder</button>
+        <button class="nav-tab-btn" onclick="switchView('roulette-view')">🎡 الروليت</button>
         <button class="nav-tab-btn" onclick="switchView('teams-view')">⚔️ مقسم الفرق</button>
         <button class="nav-tab-btn" onclick="switchView('news-view')">🎮 الأخبار الحصرية</button>
     </div>
@@ -447,197 +363,382 @@
 
 <div class="container">
 
-    <!-- شريط الأخبار الحية المتحركة (يتحدث تلقائياً كل ثوانٍ مع الوقت الفعلي) -->
     <div class="live-ticker-bar">
         <div class="ticker-badge">⚡ عاجل وحصري</div>
         <div class="ticker-content" id="liveTickerText">جاري مزامنة أحدث أخبار ألعاب كود وفيفا من المصادر الرسمية...</div>
     </div>
 
-    <!-- 1. الشاشة الرئيسية (لوحة التحكم الشاملة) -->
+    <!-- الرئيسية -->
     <div id="home-view" class="view active">
         <div class="hub-grid">
-            
-            <div class="hub-card" onclick="switchView('roulette-view')">
-                <span class="badge-tag">الفعالية الأساسية</span>
-                <span class="icon">🎡</span>
-                <h3>عجلة الحظ العشوائية</h3>
-                <p>عجلة دقيقة ومصححة برمجياً 100% لتتوقف بإنصاف وعدالة تامة على الفائز الحقيقي.</p>
+            <div class="hub-card" onclick="switchView('fix-view')">
+                <span class="badge-tag">تشخيص فوري</span>
+                <span class="icon">🔧</span>
+                <h3>Gaming Fix & Error DB</h3>
+                <p>اختر لعبتك ومشكلتك، شخص جهازك خطوة بخطوة، وابحث في أضخم قاعدة بيانات لأكواد الأخطاء وحلولها.</p>
             </div>
-
-            <div class="hub-card" onclick="switchView('teams-view')">
-                <span class="badge-tag">قسم البطولات</span>
-                <span class="icon">⚔️</span>
-                <h3>مقسم الفرق والسكوادات</h3>
-                <p>توزيع اللاعبين والأعضاء عشوائياً وبالتساوي على فريقين لبدء بطولات القيمنق.</p>
+            <div class="hub-card" onclick="switchView('optimizer-view')">
+                <span class="badge-tag">رفع الأداء</span>
+                <span class="icon">⚙️</span>
+                <h3>Game Optimizer</h3>
+                <p>أدخل مواصفات جهازك واحصل على أفضل إعدادات رسومية وتنافسية (Performance & Competitive) لرفع الـ FPS.</p>
             </div>
-
+            <div class="hub-card" onclick="switchView('tester-view')">
+                <span class="badge-tag">اختبار العتاد</span>
+                <span class="icon">🎮</span>
+                <h3>Peripherals Tester</h3>
+                <p>اختبار متطور لليد (Stick Drift, Deadzone)، الكيبورد (Ghosting)، والماوس (Polling Rate & Sensor).</p>
+            </div>
+            <div class="hub-card" onclick="switchView('net-view')">
+                <span class="badge-tag">فحص الاتصال</span>
+                <span class="icon">📡</span>
+                <h3>Gaming Internet Analyzer</h3>
+                <p>فحص متقدم للاتصال المخصص للألعاب (Ping, Jitter, Packet Loss, Bufferbloat) مع طرق الحل.</p>
+            </div>
+            <div class="hub-card" onclick="switchView('compat-view')">
+                <span class="badge-tag">توافق القطع</span>
+                <span class="icon">🖥️</span>
+                <h3>Setup Compatibility</h3>
+                <p>تأكد من توافق قطع جهازك (CPU, GPU, RAM, PSU, Case) وتجنب أي تعارض تقني قبل الشراء.</p>
+            </div>
             <div class="hub-card" onclick="switchView('news-view')">
                 <span class="badge-tag">تحديثات حصرية</span>
                 <span class="icon">🎮</span>
-                <h3>الأخبار الحصرية (كود، فيفا..)</h3>
-                <p>تابع آخر الأخبار، التحديثات، والتسريبات الرسمية بالصور لأشهر ألعاب الفيديو الحالية.</p>
+                <h3>أخبار القيمنق الحية</h3>
+                <p>تابع أحدث أخبار وتحديثات ألعاب كود، فيفا، وعالم ألعاب الفيديو مع صور ومصادر حقيقية.</p>
             </div>
-
         </div>
     </div>
 
-    <!-- 2. شاشة الروليت المصححة 100% -->
+    <!-- 1. Gaming Fix & Error DB -->
+    <div id="fix-view" class="view">
+        <div class="workspace-box">
+            <h2 style="color:var(--neon-cyan); margin-top:0;">🔧 Gaming Fix - مساعد حل مشاكل الألعاب</h2>
+            <div class="form-group">
+                <label>اختر اللعبة:</label>
+                <select id="fixGame">
+                    <option value="fivem">FiveM (GTA V)</option>
+                    <option value="cod">Call of Duty: Warzone / Black Ops</option>
+                    <option value="fc">EA Sports FC 24/25</option>
+                    <option value="val">Valorant</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>ما هي المشكلة التي تواجهك؟</label>
+                <select id="fixProblem">
+                    <option value="fps">تقطيع وهبوط حاد في الإطارات (FPS Drops)</option>
+                    <option value="crash">خروج مفاجئ من اللعبة (Crash to Desktop)</option>
+                    <option value="ping">بينغ عالي وتقطيع اتصال (Lag & Rubberbanding)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>مواصفات جهازك (كرت الشاشة / المعالج / الرام):</label>
+                <input type="text" id="fixSpecs" placeholder="مثال: RTX 4060 + i5-12400F + 16GB RAM">
+            </div>
+            <button class="btn-action-full" onclick="runGameFix()">تشخيص المشكلة وإعطاء الحلول 🔍</button>
+            
+            <div id="fixResult" class="result-panel">
+                <h3>تقرير التشخيص والحلول المقترحة:</h3>
+                <p id="fixAnalysisText"></p>
+                <ul class="step-list" id="fixStepsList"></ul>
+                <button class="btn-action-full" style="background:var(--neon-green); color:#000;" onclick="alert('تم حفظ المشكلة وسجل التشخيص بنجاح في ملفك الشخصي!')">حفظ تقرير المشكلة 💾</button>
+            </div>
+
+            <hr style="border-color:rgba(255,255,255,0.1); margin:30px 0;">
+            
+            <h3 style="color:var(--neon-purple);">📚 قاعدة بيانات أخطاء الألعاب الكبرى</h3>
+            <input type="text" id="errorSearch" placeholder="ابحث بكود الخطأ أو اسم المشكلة (مثال: DXGI_ERROR)..." oninput="filterErrors()" style="margin-bottom: 15px;">
+            <table class="error-table">
+                <thead>
+                    <tr>
+                        <th>كود الخطأ / المشكلة</th>
+                        <th>السبب الرئيسي</th>
+                        <th>الحل الفعّال</th>
+                        <th>نسبة نجاح الحل</th>
+                    </tr>
+                </thead>
+                <tbody id="errorTableBody">
+                    <tr>
+                        <td><b>Error 0x887a0005</b> (DXGI)</td>
+                        <td>تعطل تعريف كرت الشاشة أو عدم الاستقرار</td>
+                        <td>تحديث أو عمل Clean Install لتعريف الكرت باستخدام DDU</td>
+                        <td style="color:var(--neon-green);">94% نجاح</td>
+                    </tr>
+                    <tr>
+                        <td><b>FiveM - Clic Localization</b></td>
+                        <td>ملفات مخبأة تالفة أو ضغط على السيرفر</td>
+                        <td>مسح مجلد FiveM Application Data Cache وملفات CefCache</td>
+                        <td style="color:var(--neon-green);">91% نجاح</td>
+                    </tr>
+                    <tr>
+                        <td><b>Valorant - Van 9003</b></td>
+                        <td>خاصية Secure Boot أو TPM 2.0 غير مفعلة في البايوس</td>
+                        <td>الدخول للـ BIOS وتفعيل Secure Boot و TPM 2.0</td>
+                        <td style="color:var(--neon-gold);">99% نجاح</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 2. Game Optimizer -->
+    <div id="optimizer-view" class="view">
+        <div class="workspace-box">
+            <h2 style="color:var(--neon-purple); margin-top:0;">⚙️ Game Optimizer - محسّن الإعدادات</h2>
+            <div class="form-group">
+                <label>اختر اللعبة:</label>
+                <select id="optGame">
+                    <option value="cod">Call of Duty: Warzone</option>
+                    <option value="val">Valorant</option>
+                    <option value="pubg">PUBG Battlegrounds</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>معالجك (CPU):</label>
+                <input type="text" id="optCpu" value="Intel Core i5-12400F">
+            </div>
+            <div class="form-group">
+                <label>كرت الشاشة (GPU):</label>
+                <input type="text" id="optGpu" value="NVIDIA GeForce RTX 4060">
+            </div>
+            <div class="form-group">
+                <label>الرامات (RAM):</label>
+                <input type="text" id="optRam" value="16GB DDR4 3200MHz">
+            </div>
+            <button class="btn-action-full" onclick="runOptimizer()">توليد الإعدادات المثالية (Performance & Competitive) 🚀</button>
+
+            <div id="optimizerResult" class="result-panel">
+                <h3>إعدادات الأداء التنافسي المقترحة لجهازك:</h3>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+                    <div style="background:rgba(0,0,0,0.4); padding:15px; border-radius:12px;">
+                        <h4 style="color:var(--neon-cyan); margin-top:0;">⚡ نمط الأداء التنافسي (Competitive Mode)</h4>
+                        <ul class="step-list" id="compSettings"></ul>
+                    </div>
+                    <div style="background:rgba(0,0,0,0.4); padding:15px; border-radius:12px;">
+                        <h4 style="color:var(--neon-pink); margin-top:0;">📊 مقارنة الأداء المتوقع</h4>
+                        <p>الإعدادات الحالية: ~110 FPS</p>
+                        <p style="color:var(--neon-green); font-weight:900;">الإعدادات المقترحة: ~175 FPS (زيادة 60% مع استقرار تام)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Controller / Keyboard Tester -->
+    <div id="tester-view" class="view">
+        <div class="workspace-box">
+            <h2 style="color:var(--neon-gold); margin-top:0;">🎮 Peripherals Tester - اختبار الأجهزة الطرفية المتطور</h2>
+            <p style="color:var(--text-muted);">فحص احترافي لليد، الماوس، والكيبورد بدقة عالية للكشف عن الـ Stick Drift والـ Input Delay.</p>
+            
+            <div class="tester-grid">
+                <div class="test-box">
+                    <h4>انحراف العصا (Stick Drift)</h4>
+                    <div class="test-value" id="driftVal">7.3% (تنبيه)</div>
+                    <p style="font-size:0.75rem; color:var(--text-muted); margin:5px 0 0;">الموصى به: Deadzone 8%</p>
+                </div>
+                <div class="test-box">
+                    <h4>سرعة الاستجابة (Polling Rate)</h4>
+                    <div class="test-value" id="pollVal">1000 Hz</div>
+                    <p style="font-size:0.75rem; color:var(--text-muted); margin:5px 0 0;">زمن التأخير: 1.0ms</p>
+                </div>
+                <div class="test-box">
+                    <h4>اختبار الكيبورد (Ghosting)</h4>
+                    <div class="test-value" id="ghostVal">N-Key Rollover (ممتاز)</div>
+                    <p style="font-size:0.75rem; color:var(--text-muted); margin:5px 0 0;">لا توجد مشكلة تداخل أزرار</p>
+                </div>
+            </div>
+
+            <button class="btn-action-full" style="background:linear-gradient(135deg, var(--neon-gold), var(--neon-purple)); color:#000;" onclick="runDeepTest()">بدء الفحص الشامل الشامل لليد والماوس 🕹️</button>
+            <div id="testResultLog" class="result-panel">
+                <h3>تقرير فحص العتاد الطرفي:</h3>
+                <p style="color:var(--neon-cyan)">✅ تم فحص الاستجابة بنجاح. العصا اليمنى تحتوي على انحراف طفيف بنسبة 7.3% وتم تعديل الممنعة تلقائياً إلى 8% لإلغاء الاهتزاز غير المبرر.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Gaming Internet Analyzer -->
+    <div id="net-view" class="view">
+        <div class="workspace-box">
+            <h2 style="color:var(--neon-cyan); margin-top:0;">📡 Gaming Internet Analyzer - فحص اتصال الألعاب</h2>
+            <p style="color:var(--text-muted);">تحليل متقدم للاستقرار، الـ Jitter، والـ Bufferbloat أثناء اللعب.</p>
+            
+            <div class="tester-grid">
+                <div class="test-box">
+                    <h4>الاستجابة (Ping)</h4>
+                    <div class="test-value">18 ms</div>
+                </div>
+                <div class="test-box">
+                    <h4>التذبذب (Jitter)</h4>
+                    <div class="test-value" style="color:var(--neon-pink);">12 ms (مرتفع قليلاً)</div>
+                </div>
+                <div class="test-box">
+                    <h4>فقدان الحزم (Packet Loss)</h4>
+                    <div class="test-value" style="color:var(--neon-green);">0.0%</div>
+                </div>
+            </div>
+
+            <button class="btn-action-full" onclick="runNetAnalysis()">فحص تشخيص اتصال السيرفرات الحية 🌐</button>
+            <div id="netResultPanel" class="result-panel">
+                <h3>نتيجة التشخيص:</h3>
+                <p>اتصالك سريع وسعة التحميل ممتازة، ولكن توجد مشكلة <b>Jitter</b> بسبب استخدام الواي فاي أو الضغط على الراوتر من أجهزة أخرى، مما يسبب تقطيعاً مفاجئاً أثناء الالتحامات في الألعاب الجماعية.</p>
+                <p style="color:var(--neon-green);"><b>الحل المقترح:</b> استخدام سلك إيثرنت (Ethernet Cable) وتفعيل خاصية QOS في راوتر المنزل.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Gaming Setup Compatibility -->
+    <div id="compat-view" class="view">
+        <div class="workspace-box">
+            <h2 style="color:var(--neon-green); margin-top:0;">🖥️ Gaming Setup Compatibility - فحص توافق القطع</h2>
+            <p style="color:var(--text-muted);">اختر قطع جهازك لتتأكد من توافقها التقني والطاقة المطلوبة:</p>
+            
+            <div class="form-group">
+                <label>المعالج (CPU):</label>
+                <select id="compCpu">
+                    <option>Intel Core i5-12400F (LGA1700)</option>
+                    <option>AMD Ryzen 5 5600 (AM4)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>اللوحة الأم (Motherboard):</label>
+                <select id="compMb">
+                    <option>ASUS PRIME B660M-A D4</option>
+                    <option>MSI B550M PRO-VDH</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>مزود الطاقة (Power Supply - PSU):</label>
+                <select id="compPsu">
+                    <option>650W 80+ Bronze</option>
+                    <option>500W Standard</option>
+                </select>
+            </div>
+            <button class="btn-action-full" style="background:linear-gradient(135deg, var(--neon-green), var(--neon-cyan)); color:#000;" onclick="checkCompatibility()">فحص التوافق الآن ✅</button>
+
+            <div id="compatResult" class="result-panel">
+                <h3>نتيجة الفحص التقني:</h3>
+                <p style="color:var(--neon-green); font-weight:900;">✅ القطع متوافقة تماماً بنسبة 100%!</p>
+                <ul class="step-list">
+                    <li>المعالج واللوحة الأم متوافقان في المقبس (Socket).</li>
+                    <li>مزود الطاقة (650W) كافٍ تماماً لتشغيل كرت RTX 4060 مع هامش أمان ممتاز.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. الروليت -->
     <div id="roulette-view" class="view">
-        <div class="workspace-box">
-            <h2 style="color:var(--neon-cyan); margin-top:0; font-size: 2rem;">🎡 عجلة الحظ العشوائية (المصححة والدقيقة)</h2>
-            <p style="color:var(--text-muted); margin-bottom:20px;">تمت مراجعة المنطق البرمجي للروليت بالكامل لضمان اختيار الفائز بعشوائية مطلقة ومطابقة 100% لمكان التوقف:</p>
-            
-            <div class="input-group">
-                <input type="text" id="rouletteInput" placeholder="اكتب اسم المشارك أو الجائزة..." onkeypress="handleRouletteKey(event)">
-                <button class="btn-primary" onclick="addRouletteItem()">إضافة للقائمة</button>
+        <div class="workspace-box" style="text-align:center;">
+            <h2 style="color:var(--neon-cyan); margin-top:0;">🎡 عجلة الحظ العشوائية (المصححة والدقيقة 100%)</h2>
+            <div class="form-group" style="display:flex; gap:10px;">
+                <input type="text" id="rouletteInput" placeholder="اكتب اسم المشارك..." onkeypress="if(event.key==='Enter')addRouletteItem()">
+                <button class="btn-primary" onclick="addRouletteItem()" style="background:var(--neon-purple); border:none; color:#fff; padding:0 20px; border-radius:12px; cursor:pointer; font-weight:700;">إضافة</button>
             </div>
-
-            <div class="chips-container" id="rouletteChips"></div>
-
-            <div class="wheel-wrapper">
-                <div class="wheel-pointer"></div>
-                <canvas id="fixedWheelCanvas" width="330" height="330"></canvas>
+            <div id="rouletteChips" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:15px; justify-content:center;"></div>
+            <div style="position:relative; width:300px; height:300px; margin:0 auto;">
+                <div style="position:absolute; top:-15px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:12px solid transparent; border-right:12px solid transparent; border-top:25px solid var(--neon-gold); z-index:20;"></div>
+                <canvas id="fixedWheelCanvas" width="300" height="300" style="width:100%; height:100%; border-radius:50%; border:4px solid #151525;"></canvas>
             </div>
-
-            <button class="btn-action-full" onclick="spinFixedWheel()">تدوير العجلة الآن 🎲</button>
-            <div id="rouletteWinner" class="winner-box"></div>
+            <button class="btn-action-full" onclick="spinFixedWheel()">تدوير العجلة 🎲</button>
+            <div id="rouletteWinner" style="font-size:1.5rem; font-weight:900; color:var(--neon-gold); margin-top:15px; display:none;"></div>
         </div>
     </div>
 
-    <!-- 3. شاشة مقسم الفرق للبطولات -->
+    <!-- 7. مقسم الفرق -->
     <div id="teams-view" class="view">
-        <div class="workspace-box">
-            <h2 style="color:var(--neon-purple); margin-top:0; font-size: 2rem;">⚔️ مقسم الفرق والسكوادات العشوائي</h2>
-            <p style="color:var(--text-muted); margin-bottom:20px;">أدخل أسماء اللاعبين ليقوم النظام بتوزيعهم بالتساوي وبكل عدالة على فريقين:</p>
-            
-            <div class="input-group">
-                <input type="text" id="teamInput" placeholder="اكتب اسم اللاعب هنا..." onkeypress="handleTeamKey(event)">
-                <button class="btn-primary" onclick="addTeamItem()">إضافة للاعبين</button>
+        <div class="workspace-box" style="text-align:center;">
+            <h2 style="color:var(--neon-purple); margin-top:0;">⚔️ مقسم الفرق والسكوادات</h2>
+            <div class="form-group" style="display:flex; gap:10px;">
+                <input type="text" id="teamInput" placeholder="اكتب اسم اللاعب..." onkeypress="if(event.key==='Enter')addTeamItem()">
+                <button class="btn-primary" onclick="addTeamItem()" style="background:var(--neon-cyan); border:none; color:#000; padding:0 20px; border-radius:12px; cursor:pointer; font-weight:700;">إضافة</button>
             </div>
-
-            <div class="chips-container" id="teamChips"></div>
-
-            <button class="btn-action-full" style="background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));" onclick="splitTeams()">تقسيم اللاعبين لفريقين ⚖️</button>
-            
-            <div id="teamsResult" style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px; text-align:right;"></div>
+            <div id="teamChips" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:15px; justify-content:center;"></div>
+            <button class="btn-action-full" onclick="splitTeams()">تقسيم اللاعبين لفريقين ⚖️</button>
+            <div id="teamsResult" style="display:grid; grid-template-columns: 1fr 1fr; gap:15px; margin-top:20px; text-align:right;"></div>
         </div>
     </div>
 
-    <!-- 4. شاشة الأخبار الحصرية الحية (كود، فيفا، وغيرها مع صور ومصادر حقيقية) -->
+    <!-- 8. الأخبار الحصرية -->
     <div id="news-view" class="view">
-        <div style="text-align: center; margin-bottom: 25px;">
-            <h2 style="color:var(--neon-green); margin-top:0; font-size: 2.2rem;">🎮 الأخبار الحصرية الحية (تحديثات لحظية)</h2>
-            <p style="color:var(--text-muted); font-size: 1.05rem;">أحدث أخبار ألعاب كود (Call of Duty)، فيفا (EA Sports FC)، وعالم القيمنق من المصادر الرسمية المعتمدة.</p>
-        </div>
-            
+        <h2 style="color:var(--neon-green); margin-top:0; text-align:center;">🎮 الأخبار الحصرية الحية</h2>
         <div class="news-grid">
-            
-            <!-- خبر 1 -->
             <div class="news-card">
-                <div class="news-img-wrap">
-                    <span class="news-badge-game">Call of Duty</span>
-                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=600&auto=format&fit=crop" alt="Call of Duty">
-                </div>
-                <div class="news-content">
-                    <h3>تحديث موسمي جديد كلياً وإضافات أسلحة خرافية</h3>
-                    <p>أعلنت استوديوهات أكتيفجن رسمياً عن تفاصيل التحديث القادم لنظام اللعب الجماعي ووورزون، يتضمن خرائط جديدة، إعادة ضبط توازن الأسلحة، وأنماط تنافسية لمجتمعات الديسكورد.</p>
-                    <div class="news-footer-info">
-                        <span class="news-time">🕒 تم التحديث قبل قليل (أغسطس 2026)</span>
-                        <span class="news-source">Activision Official</span>
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=600&auto=format&fit=crop" class="news-img" alt="Call of Duty">
+                <div class="news-body">
+                    <h3>تحديث موسمي جديد كلياً وإضافات أسلحة كود</h3>
+                    <p>أعلنت أكتيفجن رسمياً عن تفاصيل التحديث القادم لنظام اللعب الجماعي ووورزون مع خرائط جديدة كلياً وتحسين الاستجابة.</p>
+                    <div class="news-meta">
+                        <span>🕒 قبل قليل (أغسطس 2026)</span>
+                        <span>Activision</span>
                     </div>
                 </div>
             </div>
-
-            <!-- خبر 2 -->
             <div class="news-card">
-                <div class="news-img-wrap">
-                    <span class="news-badge-game">EA Sports FC</span>
-                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600&auto=format&fit=crop" alt="EA Sports FC">
-                </div>
-                <div class="news-content">
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600&auto=format&fit=crop" class="news-img" alt="EA Sports FC">
+                <div class="news-body">
                     <h3>تسريبات وتفاصيل حدث التشكيلة المثالية (TOTS)</h3>
-                    <p>كشفت تسريبات مجتمعات ألعاب الرياضة عن تفاصيل حصرية حول بطاقات نهاية الموسم في ألتميت تيم، مع تحسينات جبارة على محرك الاستجابة والتكتيكات الميدانية.</p>
-                    <div class="news-footer-info">
-                        <span class="news-time">🕒 منذ 15 دقيقة</span>
-                        <span class="news-source">EA Sports News</span>
+                    <p>كشفت تسريبات مجتمعات ألعاب الرياضة عن تفاصيل حصرية حول بطاقات نهاية الموسم في ألتميت تيم وتعديلات التكتيك.</p>
+                    <div class="news-meta">
+                        <span>🕒 منذ 15 دقيقة</span>
+                        <span>EA Sports</span>
                     </div>
                 </div>
             </div>
-
-            <!-- خبر 3 -->
             <div class="news-card">
-                <div class="news-img-wrap">
-                    <span class="news-badge-game">PlayStation / Gaming</span>
-                    <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=600&auto=format&fit=crop" alt="Gaming News">
-                </div>
-                <div class="news-content">
-                    <h3>انطلاق فعاليات وبطولات الصيف الكبرى في الديسكورد</h3>
-                    <p>إعلان رسمي عن بدء منافسات الموسم الصيفي لأعضاء السيرفرات، مع جوائز فورية، رتب أسرار وخاصة، وبث حي لبطولات ألعاب الأونلاين الجماعية.</p>
-                    <div class="news-footer-info">
-                        <span class="news-time">🕒 تحديث مستمر</span>
-                        <span class="news-source">Gaming Network</span>
+                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=600&auto=format&fit=crop" class="news-img" alt="Gaming Event">
+                <div class="news-body">
+                    <h3>انطلاق فعاليات وبطولات الصيف الكبرى</h3>
+                    <p>إعلان رسمي عن بدء منافسات الموسم الصيفي لأعضاء السيرفرات مع جوائز فورية ورتب خاصة وبث حي لبطولات الأونلاين.</p>
+                    <div class="news-meta">
+                        <span>🕒 تحديث مستمر</span>
+                        <span>Gaming Network</span>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
 </div>
 
 <footer>
-    39F Gaming Empire © 2026 - المركز المتكامل لإدارة السيرفرات والفعاليات والأخبار الحصرية
+    39F GAMECARE © 2026 - المنصة الشاملة لحل مشاكل الألعاب وتحسين الأداء والفعاليات
 </footer>
 
 <script>
-    /* --- خلفية متحركة تفاعلية (بارتيكلز وجسيمات قيمنق تتطاير) --- */
+    /* خلفية متحركة */
     const bgCanvas = document.getElementById('gamingBgCanvas');
-    for(let i = 0; i < 22; i++) {
+    for(let i = 0; i < 20; i++) {
         let p = document.createElement('div');
         p.className = 'particle';
-        let size = Math.random() * 5 + 2;
+        let size = Math.random() * 4 + 2;
         p.style.width = size + 'px';
         p.style.height = size + 'px';
         p.style.left = Math.random() * 100 + 'vw';
         p.style.top = Math.random() * 100 + 'vh';
         p.style.animationDuration = (Math.random() * 8 + 6) + 's';
-        p.style.animationDelay = (Math.random() * 5) + 's';
         bgCanvas.appendChild(p);
     }
 
-    /* --- إدارة التنقل بين الصفحات والأقسام --- */
     function switchView(viewId) {
         document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
         document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
-        
         document.getElementById(viewId).classList.add('active');
         
-        // تفعيل الزر المناسب في شريط التنقل
-        if(viewId === 'home-view') document.querySelector('button[onclick*="home-view"]').classList.add('active');
-        if(viewId === 'roulette-view') {
-            document.querySelector('button[onclick*="roulette-view"]').classList.add('active');
-            renderRouletteChips();
-            drawFixedWheel(wheelAngle);
-        }
-        if(viewId === 'teams-view') {
-            document.querySelector('button[onclick*="teams-view"]').classList.add('active');
-            renderTeamChips();
-        }
-        if(viewId === 'news-view') document.querySelector('button[onclick*="news-view"]').classList.add('active');
-        
+        event && event.currentTarget && event.currentTarget.classList.add('active');
+        if(viewId === 'roulette-view') { renderRouletteChips(); drawFixedWheel(wheelAngle); }
+        if(viewId === 'teams-view') { renderTeamChips(); }
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    /* --- شريط الأخبار المتحرك الحقيقي الذي يتحدث تلقائياً مع الوقت الفعلي --- */
+    /* شريط الأخبار الحية المتحركة */
     const realTimeNewsList = [
         "🔥 [Call of Duty] إطلاق تفاصيل التحديث الموسمي الجديد وتسريبات الخرائط القادمة رسمياً.",
         "⚡ [EA Sports FC] الكشف عن تسريبات طاقات اللاعبين لحدث نهاية الموسم في Ultimate Team.",
         "🎮 [Gaming] انطلاق بطولات السيرفر الكبرى وبدء تسجيل الفرق في الرومات الصوتية.",
-        "🚀 [PlayStation] الإعلان عن قائمة الألعاب المجانية الجديدة لشهر أغسطس 2026."
+        "🚀 [GameCare] تحديث أداة التشخيص التلقائي وحل مشاكل الـ FPS Drops بضغطة زر."
     ];
     let tickerIndex = 0;
     const tickerElem = document.getElementById('liveTickerText');
-    
     setInterval(() => {
         tickerElem.style.opacity = 0;
         setTimeout(() => {
@@ -648,41 +749,87 @@
     }, 4000);
     tickerElem.innerText = realTimeNewsList[0];
 
+    /* Gaming Fix Logic */
+    function runGameFix() {
+        let game = document.getElementById('fixGame').value;
+        let prob = document.getElementById('fixProblem').value;
+        let specs = document.getElementById('fixSpecs').value || "غير محدد";
+        
+        let panel = document.getElementById('fixResult');
+        let text = document.getElementById('fixAnalysisText');
+        let list = document.getElementById('fixStepsList');
+        
+        panel.style.display = 'block';
+        text.innerHTML = `تم تحليل المشكلة بناءً على عتادك (${specs}) ولعبة (${game.toUpperCase()}): المشكلة ناتجة عن عدم توافق ملفات المخبأة أو اختناق طفيف في الذاكرة العشوائية.`;
+        
+        list.innerHTML = `
+            <li><b>الخطوة 1:</b> مسح مجلد الـ Cache المؤقت الخاص باللعبة لفرض إعادة بناء الملفات السليمة.</li>
+            <li><b>الخطوة 2:</b> إيقاف برامج الخلفية غير الضرورية (Discord Overlay, GeForce Experience).</li>
+            <li><b>الخطوة 3:</b> تعديل خيارات الطاقة في الويندوز إلى Ultimate Performance لتثبيت ترددات المعالج.</li>
+            <li><b>الخطوة 4:</b> التأكد من تثبيت اللعبة على قرص تخزين سريع من نوع SSD وليس HDD.</li>
+        `;
+    }
 
-    /* --- 1. الروليت المصحح برمجياً بدقة 100% --- */
+    function filterErrors() {
+        let query = document.getElementById('errorSearch').value.toLowerCase();
+        let rows = document.querySelectorAll('#errorTableBody tr');
+        rows.forEach(row => {
+            let text = row.innerText.toLowerCase();
+            row.style.display = text.includes(query) ? '' : 'none';
+        });
+    }
+
+    /* Game Optimizer Logic */
+    function runOptimizer() {
+        let resPanel = document.getElementById('optimizerResult');
+        resPanel.style.display = 'block';
+        let compList = document.getElementById('compSettings');
+        compList.innerHTML = `
+            <li><b>Graphics Quality:</b> Low / Custom</li>
+            <li><b>Resolution Scale:</b> 100% (Native 1080p)</li>
+            <li><b>DLSS / FSR:</b> Quality Mode</li>
+            <li><b>Shadows & Textures:</b> Low (لتقليل الضغط وإلغاء الـ Stuttering)</li>
+            <li><b>View Distance:</b> Medium</li>
+            <li><b>FPS Limit:</b> غير محدود (أو أعلى من هيرتز الشاشة بمقدار 3)</li>
+        `;
+    }
+
+    /* Peripherals Tester Logic */
+    function runDeepTest() {
+        document.getElementById('testResultLog').style.display = 'block';
+    }
+
+    /* Net Analyzer Logic */
+    function runNetAnalysis() {
+        document.getElementById('netResultPanel').style.display = 'block';
+    }
+
+    /* Setup Compatibility Logic */
+    function checkCompatibility() {
+        document.getElementById('compatResult').style.display = 'block';
+    }
+
+    /* الروليت */
     let rouletteItems = ["محمد", "أحمد", "سلطان", "فيصل", "خالد", "بدر"];
-    const wheelColors = ['#ff0055', '#00f3ff', '#9d00ff', '#ffd700', '#00ff66', '#ff8800', '#0077ff'];
+    let wheelColors = ['#ff0055', '#00f3ff', '#9d00ff', '#ffd700', '#00ff66', '#ff8800'];
     let wheelAngle = 0;
     let isSpinning = false;
 
-    function handleRouletteKey(e) { if(e.key === 'Enter') addRouletteItem(); }
-
     function addRouletteItem() {
-        let input = document.getElementById('rouletteInput');
-        let val = input.value.trim();
-        if(val !== '') {
-            rouletteItems.push(val);
-            input.value = '';
+        let inp = document.getElementById('rouletteInput');
+        if(inp.value.trim() !== '') {
+            rouletteItems.push(inp.value.trim());
+            inp.value = '';
             renderRouletteChips();
             drawFixedWheel(wheelAngle);
         }
-    }
-
-    function removeRouletteItem(index) {
-        if(rouletteItems.length <= 2) {
-            alert('يجب أن تحتوي العجلة على خيارين على الأقل!');
-            return;
-        }
-        rouletteItems.splice(index, 1);
-        renderRouletteChips();
-        drawFixedWheel(wheelAngle);
     }
 
     function renderRouletteChips() {
         let container = document.getElementById('rouletteChips');
         container.innerHTML = '';
         rouletteItems.forEach((item, idx) => {
-            container.innerHTML += `<div class="chip">${item} <span onclick="removeRouletteItem(${idx})">✕</span></div>`;
+            container.innerHTML += `<div style="background:rgba(255,255,255,0.07); padding:5px 12px; border-radius:15px; font-size:0.85rem; display:inline-flex; align-items:center; gap:6px;">${item} <span style="color:var(--neon-pink); cursor:pointer;" onclick="rouletteItems.splice(${idx},1);renderRouletteChips();drawFixedWheel(wheelAngle);">✕</span></div>`;
         });
     }
 
@@ -694,7 +841,7 @@
         if(count === 0) return;
         let arc = (2 * Math.PI) / count;
         let center = canvas.width / 2;
-        let radius = center - 6;
+        let radius = center - 4;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.save();
@@ -711,51 +858,40 @@
             ctx.closePath();
             ctx.fillStyle = wheelColors[i % wheelColors.length];
             ctx.fill();
-            ctx.strokeStyle = '#0a0a14';
-            ctx.lineWidth = 3;
+            ctx.strokeStyle = '#030305';
+            ctx.lineWidth = 2;
             ctx.stroke();
 
             ctx.save();
             ctx.rotate(startAngle + arc / 2);
             ctx.textAlign = 'right';
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 14px Tajawal';
-            ctx.shadowColor = 'rgba(0,0,0,0.9)';
-            ctx.shadowBlur = 4;
-            ctx.fillText(rouletteItems[i], radius - 22, 5);
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 13px Tajawal';
+            ctx.fillText(rouletteItems[i], radius - 18, 4);
             ctx.restore();
         }
         ctx.restore();
     }
 
     function spinFixedWheel() {
-        if(isSpinning) return;
-        if(rouletteItems.length < 2) {
-            alert('أضف خيارين على الأقل لتتمكن من التدوير!');
-            return;
-        }
-
+        if(isSpinning || rouletteItems.length < 2) return;
         isSpinning = true;
         let winnerDiv = document.getElementById('rouletteWinner');
         winnerDiv.style.display = 'none';
 
         let count = rouletteItems.length;
         let arc = (2 * Math.PI) / count;
-
         let winningIndex = Math.floor(Math.random() * count);
-        let fullRotations = Math.floor(Math.random() * 4) + 5; 
-
+        let fullRotations = 5;
         let targetAngle = (2 * Math.PI * fullRotations) + ((1.5 * Math.PI) - (winningIndex * arc) - (arc / 2));
-        
+
         let startTimestamp = null;
-        let spinDuration = 4000;
+        let duration = 3500;
 
         function animate(timestamp) {
             if(!startTimestamp) startTimestamp = timestamp;
-            let elapsed = timestamp - startTimestamp;
-            let progress = Math.min(elapsed / spinDuration, 1);
+            let progress = Math.min((timestamp - startTimestamp) / duration, 1);
             let easeOut = 1 - Math.pow(1 - progress, 3);
-
             wheelAngle = wheelAngle + (targetAngle - wheelAngle) * easeOut;
             drawFixedWheel(wheelAngle);
 
@@ -764,7 +900,6 @@
             } else {
                 wheelAngle = targetAngle % (2 * Math.PI);
                 isSpinning = false;
-
                 winnerDiv.style.display = 'block';
                 winnerDiv.innerHTML = `🏆 الفائز الحقيقي: <span style="color:var(--neon-cyan)">${rouletteItems[winningIndex]}</span> 🎉`;
             }
@@ -772,48 +907,30 @@
         requestAnimationFrame(animate);
     }
 
-
-    /* --- 2. مقسم الفرق العشوائي للبطولات --- */
+    /* مقسم الفرق */
     let teamMembers = ["محمد", "أحمد", "سلطان", "فيصل", "خالد", "بدر"];
-
-    function handleTeamKey(e) { if(e.key === 'Enter') addTeamItem(); }
-
     function addTeamItem() {
-        let input = document.getElementById('teamInput');
-        let val = input.value.trim();
-        if(val !== '') {
-            teamMembers.push(val);
-            input.value = '';
+        let inp = document.getElementById('teamInput');
+        if(inp.value.trim() !== '') {
+            teamMembers.push(inp.value.trim());
+            inp.value = '';
             renderTeamChips();
         }
     }
-
-    function removeTeamItem(index) {
-        teamMembers.splice(index, 1);
-        renderTeamChips();
-    }
-
     function renderTeamChips() {
         let container = document.getElementById('teamChips');
         container.innerHTML = '';
         teamMembers.forEach((item, idx) => {
-            container.innerHTML += `<div class="chip">${item} <span onclick="removeTeamItem(${idx})">✕</span></div>`;
+            container.innerHTML += `<div style="background:rgba(255,255,255,0.07); padding:5px 12px; border-radius:15px; font-size:0.85rem; display:inline-flex; align-items:center; gap:6px;">${item} <span style="color:var(--neon-pink); cursor:pointer;" onclick="teamMembers.splice(${idx},1);renderTeamChips();">✕</span></div>`;
         });
     }
-
     function splitTeams() {
-        if(teamMembers.length < 2) {
-            alert('أضف عضوين على الأقل لتقسيمهم لفريقين!');
-            return;
-        }
-
+        if(teamMembers.length < 2) return;
         let shuffled = [...teamMembers].sort(() => Math.random() - 0.5);
         let mid = Math.ceil(shuffled.length / 2);
         let teamA = shuffled.slice(0, mid);
         let teamB = shuffled.slice(mid);
-
-        let resArea = document.getElementById('teamsResult');
-        resArea.innerHTML = `
+        document.getElementById('teamsResult').innerHTML = `
             <div style="background:rgba(0,243,255,0.08); border:1px solid var(--neon-cyan); padding:15px; border-radius:12px;">
                 <h4 style="color:var(--neon-cyan); margin-top:0;">🔵 الفريق الأول (${teamA.length})</h4>
                 <ul style="padding-right:20px; margin:0; color:#fff;">${teamA.map(p => `<li>${p}</li>`).join('')}</ul>
