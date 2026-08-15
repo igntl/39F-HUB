@@ -2,101 +2,83 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>39F Hub | ساحة الفعاليات</title>
+    <title>39F Hub | الفخامة</title>
     <style>
-        :root {
-            --primary: #ff0055;
-            --secondary: #00d4ff;
-            --bg: #0d0d0d;
-            --text: #ffffff;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        header { padding: 40px 0; }
-        h1 { font-size: 3rem; margin: 0; color: var(--primary); text-shadow: 0 0 10px var(--primary); }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-        .card {
-            background: #1a1a1a;
-            padding: 20px;
-            border: 2px solid #333;
-            border-radius: 15px;
-            transition: 0.3s;
-        }
-        .card:hover { border-color: var(--secondary); box-shadow: 0 0 15px var(--secondary); }
-        button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        input { padding: 10px; width: 80%; border-radius: 5px; border: none; margin-bottom: 10px; }
-        #wheel-result, #winner-result { font-size: 1.5rem; margin-top: 15px; font-weight: bold; }
+        body { margin: 0; background: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
+        canvas { position: fixed; top: 0; left: 0; z-index: -1; }
+        nav { display: flex; justify-content: center; gap: 20px; padding: 20px; background: rgba(0,0,0,0.8); border-bottom: 2px solid #ff0055; }
+        .page { display: none; padding: 50px; text-align: center; }
+        .active { display: block; }
+        .card { background: rgba(20,20,20,0.9); padding: 30px; border-radius: 20px; border: 1px solid #ff0055; box-shadow: 0 0 20px rgba(255,0,85,0.2); margin: auto; max-width: 600px; }
+        button { background: transparent; border: 1px solid #00d4ff; color: #00d4ff; padding: 15px 30px; cursor: pointer; transition: 0.3s; font-weight: bold; border-radius: 10px; }
+        button:hover { background: #00d4ff; color: #000; box-shadow: 0 0 20px #00d4ff; }
+        h2 { color: #ff0055; font-size: 2.5rem; }
     </style>
 </head>
 <body>
 
-<header>
+<canvas id="canvas"></canvas>
+
+<nav>
+    <button onclick="showPage('home')">🏠 الرئيسية</button>
+    <button onclick="showPage('roulette')">🎡 الروليت</button>
+    <button onclick="showPage('giveaway')">🎁 السحب</button>
+</nav>
+
+<div id="home" class="page active">
     <h1>39F Hub</h1>
-    <p>المنصة الرسمية لسيرفر 39F - فعاليات وتحديات</p>
-</header>
+    <p>أفخم ساحة فعاليات رقمية في المملكة</p>
+</div>
 
-<div class="grid">
-    <!-- Roulette / Wheel -->
+<div id="roulette" class="page">
     <div class="card">
-        <h2>عجلة الحظ</h2>
-        <input type="text" id="wheel-input" placeholder="أدخل الخيارات مفصولة بفواصل (مثلاً: فوز, خسارة, جائزة)">
-        <br>
-        <button onclick="spinWheel()">تدوير العجلة</button>
-        <div id="wheel-result"></div>
-    </div>
-
-    <!-- Giveaway Picker -->
-    <div class="card">
-        <h2>سحب الفائزين</h2>
-        <input type="text" id="names-input" placeholder="أدخل أسماء المشاركين (مثلاً: محمد, أحمد, علي)">
-        <br>
-        <button onclick="pickWinner()">اختر فائزاً</button>
-        <div id="winner-result"></div>
+        <h2>🎡 عجلة الحظ 39F</h2>
+        <p>جرب حظك الآن، أدخل خياراتك ثم أدر العجلة!</p>
+        <input type="text" id="r-in" placeholder="مثال: جائزة, عقاب, حظ أوفر" style="padding:10px; width:80%">
+        <br><br><button onclick="spin()">ابدأ التدوير</button>
+        <h3 id="r-res"></h3>
     </div>
 </div>
 
-<footer style="margin-top: 50px;">
-    <button style="background: var(--secondary);" onclick="window.location.href='#'">انضم لسيرفر 39F</button>
-</footer>
+<div id="giveaway" class="page">
+    <div class="card">
+        <h2>🎁 سحب الفائزين</h2>
+        <p>نظام سحب عشوائي ذكي لفعاليات 39F</p>
+        <textarea id="g-in" placeholder="ضع الأسماء هنا (سطر لكل اسم)" style="width:80%; height:100px"></textarea>
+        <br><br><button onclick="pick()">اختر الفائز</button>
+        <h3 id="g-res"></h3>
+    </div>
+</div>
 
 <script>
-    function spinWheel() {
-        const input = document.getElementById('wheel-input').value;
-        const items = input.split(',').map(item => item.trim());
-        if(items.length < 2) return alert('أدخل خيارين على الأقل!');
-        const randomItem = items[Math.floor(Math.random() * items.length)];
-        document.getElementById('wheel-result').innerText = "النتيجة: " + randomItem;
+    // الخلفية المتحركة
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+    let particles = [];
+    function draw() {
+        ctx.fillStyle = 'rgba(0,0,0,0.1)'; ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.fillStyle = '#ff0055';
+        particles.forEach(p => { ctx.fillRect(p.x, p.y, 2, 2); p.y += p.v; if(p.y > canvas.height) p.y=0; });
+        requestAnimationFrame(draw);
+    }
+    for(let i=0; i<100; i++) particles.push({x: Math.random()*canvas.width, y: Math.random()*canvas.height, v: Math.random()*2+1});
+    draw();
+
+    function showPage(id) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
     }
 
-    function pickWinner() {
-        const input = document.getElementById('names-input').value;
-        const names = input.split(',').map(name => name.trim());
-        if(names.length < 2) return alert('أدخل اسمين على الأقل!');
-        const winner = names[Math.floor(Math.random() * names.length)];
-        document.getElementById('winner-result').innerText = "الفائز هو: " + winner + " 🎉";
+    function spin() {
+        const items = document.getElementById('r-in').value.split(',');
+        document.getElementById('r-res').innerText = items[Math.floor(Math.random()*items.length)];
+    }
+    
+    function pick() {
+        const names = document.getElementById('g-in').value.split('\n');
+        document.getElementById('g-res').innerText = "الفائز: " + names[Math.floor(Math.random()*names.length)];
     }
 </script>
-
 </body>
 </html>
