@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>39F Hub | ساحة الفعاليات</title>
+    <style>
+        :root {
+            --primary: #ff0055;
+            --secondary: #00d4ff;
+            --bg: #0d0d0d;
+            --text: #ffffff;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        header { padding: 40px 0; }
+        h1 { font-size: 3rem; margin: 0; color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background: #1a1a1a;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+        .card:hover { border-color: var(--secondary); box-shadow: 0 0 15px var(--secondary); }
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input { padding: 10px; width: 80%; border-radius: 5px; border: none; margin-bottom: 10px; }
+        #wheel-result, #winner-result { font-size: 1.5rem; margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>39F Hub</h1>
+    <p>المنصة الرسمية لسيرفر 39F - فعاليات وتحديات</p>
+</header>
+
+<div class="grid">
+    <!-- Roulette / Wheel -->
+    <div class="card">
+        <h2>عجلة الحظ</h2>
+        <input type="text" id="wheel-input" placeholder="أدخل الخيارات مفصولة بفواصل (مثلاً: فوز, خسارة, جائزة)">
+        <br>
+        <button onclick="spinWheel()">تدوير العجلة</button>
+        <div id="wheel-result"></div>
+    </div>
+
+    <!-- Giveaway Picker -->
+    <div class="card">
+        <h2>سحب الفائزين</h2>
+        <input type="text" id="names-input" placeholder="أدخل أسماء المشاركين (مثلاً: محمد, أحمد, علي)">
+        <br>
+        <button onclick="pickWinner()">اختر فائزاً</button>
+        <div id="winner-result"></div>
+    </div>
+</div>
+
+<footer style="margin-top: 50px;">
+    <button style="background: var(--secondary);" onclick="window.location.href='#'">انضم لسيرفر 39F</button>
+</footer>
+
+<script>
+    function spinWheel() {
+        const input = document.getElementById('wheel-input').value;
+        const items = input.split(',').map(item => item.trim());
+        if(items.length < 2) return alert('أدخل خيارين على الأقل!');
+        const randomItem = items[Math.floor(Math.random() * items.length)];
+        document.getElementById('wheel-result').innerText = "النتيجة: " + randomItem;
+    }
+
+    function pickWinner() {
+        const input = document.getElementById('names-input').value;
+        const names = input.split(',').map(name => name.trim());
+        if(names.length < 2) return alert('أدخل اسمين على الأقل!');
+        const winner = names[Math.floor(Math.random() * names.length)];
+        document.getElementById('winner-result').innerText = "الفائز هو: " + winner + " 🎉";
+    }
+</script>
+
+</body>
+</html>
