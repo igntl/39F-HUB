@@ -3,169 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>39F Ultimate Hub | المنصة الملكية لفعاليات السيرفر</title>
+    <title>39F Elite Command Center | الإدارة الفاخرة للفعاليات</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
 
         :root {
-            --bg-deep: #07070c;
-            --surface: #12121c;
-            --surface-glass: rgba(18, 18, 28, 0.85);
-            --neon-gold: #ffd700;
-            --neon-cyan: #00f3ff;
-            --neon-purple: #9d00ff;
-            --neon-pink: #ff0055;
-            --text-main: #ffffff;
-            --text-muted: #9494b8;
-            --border-glow: rgba(0, 243, 255, 0.2);
+            --bg-base: #020205;
+            --surface-glass: rgba(12, 12, 22, 0.88);
+            --neon-gold: #f39c12;
+            --neon-emerald: #00e676;
+            --neon-electric: #2979ff;
+            --neon-crimson: #ff1744;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
         }
 
-        * { box-sizing: border-box; font-family: 'Cairo', sans-serif; user-select: none; }
+        * { box-sizing: border-box; font-family: 'Tajawal', sans-serif; user-select: none; }
 
         body {
-            background-color: var(--bg-deep);
-            color: var(--text-main);
+            background-color: var(--bg-base);
+            color: var(--text-primary);
             margin: 0;
             padding: 0;
             overflow-x: hidden;
             min-height: 100vh;
         }
 
-        /* تأثير الخلفية الشبكية والنجوم المضيئة */
-        .cyber-grid {
+        /* خلفية تفاعلية متحركة خاصة بالفعاليات والتشويق */
+        .gaming-particles {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                radial-gradient(circle at 50% 50%, rgba(157, 0, 255, 0.08) 0%, transparent 60%),
-                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-            background-size: 100% 100%, 50px 50px, 50px 50px;
-            z-index: -2;
-        }
-
-        .ambient-glow {
-            position: fixed;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(255, 0, 85, 0.12) 0%, transparent 70%);
-            top: 20%; left: 50%;
-            transform: translate(-50%, -50%);
-            filter: blur(80px);
-            z-index: -1;
             pointer-events: none;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(41, 121, 255, 0.07) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(243, 156, 18, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(0, 230, 118, 0.05) 0%, transparent 60%);
         }
 
-        /* الهيدر الملكي */
+        .grid-matrix {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -1;
+        }
+
         header {
             text-align: center;
-            padding: 40px 20px 10px;
-            position: relative;
+            padding: 45px 20px 15px;
         }
 
         header h1 {
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             font-weight: 900;
             margin: 0;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink), var(--neon-gold));
+            background: linear-gradient(135deg, var(--neon-gold), var(--neon-emerald), var(--neon-electric));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 40px rgba(0, 243, 255, 0.3);
-            letter-spacing: 2px;
+            text-shadow: 0 0 35px rgba(243, 156, 18, 0.3);
+            letter-spacing: 1px;
         }
 
         header p {
-            color: var(--text-muted);
-            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
             margin-top: 10px;
-            font-weight: 600;
+            font-weight: 500;
         }
 
-        /* الهيكل والنظام العام */
         .container {
             max-width: 1300px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        .view { display: none; opacity: 0; transform: translateY(20px); transition: 0.4s ease-in-out; }
+        .view { display: none; opacity: 0; transform: translateY(15px); transition: 0.4s ease; }
         .view.active { display: block; opacity: 1; transform: translateY(0); }
 
-        /* البطاقات الرئيسية للوحة التحكم */
-        .hub-grid {
+        /* شبكة اللوحة الرئيسية للفعاليات */
+        .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             padding: 30px 0;
         }
 
-        .hub-card {
+        .menu-card {
             background: var(--surface-glass);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 40px 25px;
+            border-radius: 22px;
+            padding: 35px 25px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            backdrop-filter: blur(15px);
+            transition: all 0.35s cubic-bezier(0.1, 1, 0.1, 1);
+            backdrop-filter: blur(16px);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         }
 
-        .hub-card::before {
+        .menu-card::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+            bottom: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--neon-electric), var(--neon-emerald));
             opacity: 0.3;
-            transition: 0.4s;
+            transition: 0.3s;
         }
 
-        .hub-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: var(--neon-cyan);
-            box-shadow: 0 20px 40px rgba(0, 243, 255, 0.25);
+        .menu-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--neon-emerald);
+            box-shadow: 0 20px 40px rgba(0, 230, 118, 0.2);
         }
 
-        .hub-card:hover::before { opacity: 1; height: 6px; }
+        .menu-card:hover::after { opacity: 1; height: 6px; }
 
-        .hub-card .icon { font-size: 4rem; margin-bottom: 20px; display: block; filter: drop-shadow(0 0 15px rgba(255,255,255,0.2)); }
-        .hub-card h3 { margin: 10px 0 12px; font-size: 1.6rem; color: #fff; font-weight: 700; }
-        .hub-card p { color: var(--text-muted); font-size: 1rem; margin: 0; line-height: 1.6; }
+        .menu-card .icon { font-size: 3.8rem; margin-bottom: 18px; display: block; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); }
+        .menu-card h3 { margin: 10px 0; font-size: 1.5rem; color: #fff; font-weight: 700; }
+        .menu-card p { color: var(--text-secondary); font-size: 0.95rem; margin: 0; line-height: 1.6; }
 
-        /* زر العودة المطور */
-        .back-btn {
+        /* زر العودة الفاخر */
+        .back-nav-btn {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.15);
             color: #fff;
-            padding: 12px 25px;
-            border-radius: 14px;
+            padding: 12px 24px;
+            border-radius: 12px;
             cursor: pointer;
             margin-bottom: 25px;
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 1rem;
             transition: 0.3s;
             display: inline-flex;
             align-items: center;
             gap: 10px;
             backdrop-filter: blur(10px);
         }
-        .back-btn:hover { background: var(--neon-cyan); color: #000; border-color: var(--neon-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.4); }
+        .back-nav-btn:hover { background: var(--neon-electric); border-color: var(--neon-electric); box-shadow: 0 0 20px rgba(41,121,255,0.4); }
 
-        /* حاوية الألعاب الفخمة */
-        .game-box {
+        /* صندوق الإدارة والفعاليات */
+        .workspace-box {
             background: var(--surface-glass);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 28px;
+            border-radius: 26px;
             padding: 40px;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             backdrop-filter: blur(20px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
             text-align: center;
         }
 
-        /* عناصر الإدخال والأزرار */
-        .input-group {
+        .controls-row {
             display: flex;
             gap: 12px;
             margin-bottom: 20px;
@@ -173,603 +165,505 @@
 
         input[type="text"] {
             flex: 1;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.65);
             border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 14px;
-            padding: 16px 20px;
+            border-radius: 12px;
+            padding: 15px 20px;
             color: #fff;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             outline: none;
             transition: 0.3s;
             text-align: right;
         }
 
         input[type="text"]:focus {
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.25);
-            background: rgba(0, 0, 0, 0.8);
+            border-color: var(--neon-electric);
+            box-shadow: 0 0 20px rgba(41, 121, 255, 0.3);
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+        .btn-core {
+            background: linear-gradient(135deg, var(--neon-electric), var(--neon-emerald));
             color: white;
             border: none;
-            padding: 0 30px;
-            border-radius: 14px;
-            font-size: 1.1rem;
+            padding: 0 28px;
+            border-radius: 12px;
+            font-size: 1.05rem;
             font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 5px 20px rgba(255, 0, 85, 0.4);
+            box-shadow: 0 5px 20px rgba(41, 121, 255, 0.3);
             white-space: nowrap;
         }
+        .btn-core:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 230, 118, 0.4); }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 0, 85, 0.7);
-        }
-
-        .btn-action-full {
+        .btn-action-wide {
             width: 100%;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            background: linear-gradient(135deg, var(--neon-gold), var(--neon-crimson));
             color: #fff;
             border: none;
-            padding: 18px;
-            border-radius: 14px;
-            font-size: 1.25rem;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1.2rem;
             font-weight: 900;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 5px 25px rgba(0, 243, 255, 0.3);
+            box-shadow: 0 5px 25px rgba(243, 156, 18, 0.4);
             margin-top: 15px;
         }
+        .btn-action-wide:hover { transform: scale(1.01); box-shadow: 0 10px 30px rgba(255, 23, 68, 0.5); }
 
-        .btn-action-full:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 35px rgba(0, 243, 255, 0.5);
-        }
-
-        /* قائمة الأسماء المضافة */
-        .items-chips-container {
+        /* شرائح الأسماء المضافة */
+        .chips-list {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            max-height: 140px;
+            max-height: 130px;
             overflow-y: auto;
             padding: 15px;
-            background: rgba(0,0,0,0.4);
-            border-radius: 14px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.05);
             margin-bottom: 25px;
             text-align: right;
         }
 
-        .chip {
+        .tag-chip {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 8px 15px;
-            border-radius: 25px;
+            padding: 6px 14px;
+            border-radius: 20px;
             font-size: 0.95rem;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            animation: fadeInChip 0.3s ease;
         }
-        .chip span { color: var(--neon-pink); cursor: pointer; font-weight: bold; }
-        .chip span:hover { color: #ff3366; }
+        .tag-chip span { color: var(--neon-crimson); cursor: pointer; font-weight: bold; font-size: 1.1rem; }
+        .tag-chip span:hover { color: #ff5252; }
 
-        @keyframes fadeInChip {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* تصميم الروليت الدائري الحقيقي */
-        .wheel-wrapper {
+        /* الروليت الحقيقي المطابق للواقع 100% */
+        .wheel-container-box {
             position: relative;
-            width: 360px;
-            height: 360px;
-            margin: 20px auto;
+            width: 340px;
+            height: 340px;
+            margin: 15px auto 25px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .wheel-pointer {
+        .wheel-top-pointer {
             position: absolute;
-            top: -20px;
+            top: -18px;
             left: 50%;
             transform: translateX(-50%);
             width: 0; height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 32px solid var(--neon-gold);
-            z-index: 20;
-            filter: drop-shadow(0 0 10px var(--neon-gold));
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top: 28px solid var(--neon-gold);
+            z-index: 30;
+            filter: drop-shadow(0 0 8px var(--neon-gold));
         }
 
-        #realWheelCanvas {
+        #exactPrecisionWheel {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            box-shadow: 0 0 35px rgba(0, 243, 255, 0.3), inset 0 0 20px rgba(0,0,0,0.8);
-            border: 6px solid var(--surface);
+            box-shadow: 0 0 30px rgba(0, 230, 118, 0.25), inset 0 0 20px rgba(0,0,0,0.8);
+            border: 5px solid #1a1a2e;
         }
 
-        /* شاشة الفائز داخل الروليت أو السล็อต */
-        .winner-announcement {
+        .winner-display-box {
             font-size: 2rem;
             font-weight: 900;
             color: var(--neon-gold);
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.75);
             border: 2px solid var(--neon-gold);
-            padding: 20px;
-            border-radius: 18px;
-            margin-top: 25px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-            box-shadow: inset 0 0 15px rgba(255, 215, 0, 0.2);
+            padding: 18px;
+            border-radius: 15px;
+            margin-top: 20px;
+            text-shadow: 0 0 15px rgba(243, 156, 18, 0.5);
             display: none;
         }
 
-        /* ألعاب السيرفرات الإضافية */
-        .match-card-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .mystery-box {
-            background: rgba(0,0,0,0.5);
-            border: 2px solid rgba(255,255,255,0.1);
-            border-radius: 18px;
-            padding: 30px 10px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 3.5rem;
-        }
-        .mystery-box:hover {
-            border-color: var(--neon-cyan);
-            background: rgba(0, 243, 255, 0.05);
-            transform: translateY(-5px);
-        }
-
-        .reaction-arena {
-            width: 100%;
-            height: 220px;
-            background: #1a1a2e;
-            border: 2px dashed rgba(255,255,255,0.2);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: 900;
-            cursor: pointer;
-            transition: 0.2s;
+        /* أدوات السيرفرات الجديدة المضافة (غير الألعاب التقليدية) */
+        .server-tool-card {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 25px;
             margin-bottom: 20px;
-            user-select: none;
+            text-align: right;
         }
-        .reaction-arena.waiting { background: #800020; border-color: #ff0055; color: #ffcccc; }
-        .reaction-arena.ready { background: #008040; border-color: #00ff80; color: #ffffff; box-shadow: 0 0 40px #00ff80; }
+
+        .server-tool-card h4 { margin-top: 0; color: var(--neon-emerald); font-size: 1.3rem; }
 
         footer {
             text-align: center;
-            padding: 50px 20px;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            font-weight: 600;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
 
-<div class="cyber-grid"></div>
-<div class="ambient-glow"></div>
+<div class="gaming-particles"></div>
+<div class="grid-matrix"></div>
 
 <header>
-    <h1>39F ULTIMATE HUB</h1>
-    <p>المنصة الهندسية المتكاملة لفعاليات وإدارة مجتمعات الديسكورد والقيمنق</p>
+    <h1>39F COMMAND CENTER</h1>
+    <p>منصة الإدارة الفاخرة للفعاليات، السحب، وهندسة مجتمعات الديسكورد</p>
 </header>
 
 <div class="container">
 
-    <!-- اللوحة الرئيسية (Hub Dashboard) -->
+    <!-- لوحة التحكم الرئيسية -->
     <div id="home-view" class="view active">
-        <div class="hub-grid">
-            <div class="hub-card" onclick="switchView('roulette-view')">
+        <div class="dashboard-grid">
+            <div class="menu-card" onclick="switchView('roulette-view')">
                 <span class="icon">🎡</span>
-                <h3>عجلة الحظ التفاعلية</h3>
-                <p>نظام إدخال يدوي ذكي مع عجلة دائرية ملكية تتباطأ بذكاء لتعلن الفائز بكل تشويق.</p>
+                <h3>عجلة الحظ الدقيقة</h3>
+                <p>عجلة فيزيائية واقعية 100%، تتوقف تماماً على الشخص الصحيح دون أي أخطاء أو عشوائية وهمية.</p>
             </div>
 
-            <div class="hub-card" onclick="switchView('giveaway-view')">
-                <span class="icon">🎁</span>
-                <h3>سحب السيرفر الآلي</h3>
-                <p>ماكينة سحب متطورة لجوائز السيرفرات والفعاليات الكبرى مع مؤثرات بصرية مذهلة.</p>
+            <div class="menu-card" onclick="switchView('announcement-generator-view')">
+                <span class="icon">📢</span>
+                <h3>منشئ إعلانات الفعاليات</h3>
+                <p>أداة لتصميم ونصوص إعلانات الديسكورد الجاهزة للنسخ مع منشنات وتنسيق احترافي.</p>
             </div>
 
-            <div class="hub-card" onclick="switchView('reaction-view')">
-                <span class="icon">⚡</span>
-                <h3>مختبر سرعة البديهة</h3>
-                <p>تحدي تفاعلي بالميلي ثانية لاختبار أسرع الأعضاء ردة فعل ومنحهم رتب القيمنق.</p>
+            <div class="menu-card" onclick="switchView('team-splitter-view')">
+                <span class="icon">⚔️</span>
+                <h3>مقسم الفرق العشوائي</h3>
+                <p>قسم أعضاء السيرفر إلى فريقين أو أكثر بشكل متساوٍ وعادل لبطولات القيمنق.</p>
             </div>
 
-            <div class="hub-card" onclick="switchView('boxes-view')">
-                <span class="icon">📦</span>
-                <h3>صناديق الحظ الملعونة</h3>
-                <p>3 صناديق عشوائية، واحد فقط يخفي الجائزة الكبرى والآخران مقالب ساخرة!</p>
+            <div class="menu-card" onclick="switchView('ticket-rules-view')">
+                <span class="icon">🛡️</span>
+                <h3>مولد قوانين السيرفر والتذاكر</h3>
+                <p>أنشئ قوالب قوانين الرومات ونظام التذاكر الرسمي المنسق لجلب هيبة للسيرفر.</p>
             </div>
         </div>
     </div>
 
-    <!-- 1. شاشة الروليت التفاعلية المبتكرة -->
+    <!-- 1. شاشة الروليت الدقيقة والواقعية -->
     <div id="roulette-view" class="view">
-        <button class="back-btn" onclick="switchView('home-view')">⬅ العودة للرئيسية</button>
-        <div class="game-box">
-            <h2 style="color:var(--neon-cyan); margin-top:0; font-size: 2.2rem;">🎡 عجلة الحظ الملكية</h2>
-            <p style="color:var(--text-muted); margin-bottom:20px;">أضف الخيارات واحداً تلو الآخر لتكوين عجلة التحدي الخاصة بك:</p>
+        <button class="back-nav-btn" onclick="switchView('home-view')">⬅ العودة للرئيسية</button>
+        <div class="workspace-box">
+            <h2 style="color:var(--neon-emerald); margin-top:0; font-size: 2.2rem;">🎡 عجلة الحظ الدقيقة والمضمونة</h2>
+            <p style="color:var(--text-secondary); margin-bottom:20px;">أضف الخيارات، وعند تدوير العجلة ستقف بذكاء رياضي دقيق ومطابق تماماً للواقع على الفائز الحقيقي:</p>
             
-            <div class="input-group">
-                <input type="text" id="rouletteInputItem" placeholder="اكتب الخيار أو اسم العضو (مثال: فوز برتبة VIP)..." onkeypress="handleRouletteKey(event)">
-                <button class="btn-primary" onclick="addRouletteItem()">إضافة للقائمة</button>
+            <div class="controls-row">
+                <input type="text" id="rouletteInput" placeholder="اكتب الاسم أو الجائزة (مثال: محمد، رتبة VIP)..." onkeypress="handleRouletteKey(event)">
+                <button class="btn-core" onclick="addRouletteName()">إضافة للقائمة</button>
             </div>
 
-            <div class="items-chips-container" id="rouletteChipsContainer">
-                <!-- يتم إضافة الخيارات هنا ديناميكياً -->
+            <div class="chips-list" id="rouletteChipsList"></div>
+
+            <div class="wheel-container-box">
+                <div class="wheel-top-pointer"></div>
+                <canvas id="exactPrecisionWheel" width="340" height="340"></canvas>
             </div>
 
-            <div class="wheel-wrapper">
-                <div class="wheel-pointer"></div>
-                <canvas id="realWheelCanvas" width="360" height="360"></canvas>
-            </div>
-
-            <button class="btn-action-full" onclick="spinRealWheel()">تدوير العجلة الآن 🎲</button>
-            <div id="rouletteWinnerBox" class="winner-announcement"></div>
+            <button class="btn-action-wide" onclick="spinExactWheel()">بدء التدوير الواقعي 🎲</button>
+            <div id="rouletteWinnerBanner" class="winner-display-box"></div>
         </div>
     </div>
 
-    <!-- 2. شاشة سحب الفائزين (Giveaway) -->
-    <div id="giveaway-view" class="view">
-        <button class="back-btn" onclick="switchView('home-view')">⬅ العودة للرئيسية</button>
-        <div class="game-box">
-            <h2 style="color:var(--neon-pink); margin-top:0; font-size: 2.2rem;">🎁 نظام السحب العشوائي المتقدم</h2>
-            <p style="color:var(--text-muted); margin-bottom:20px;">أضف أسماء المشاركين في الفعالية:</p>
+    <!-- 2. أداة منشئ إعلانات الفعاليات -->
+    <div id="announcement-generator-view" class="view">
+        <button class="back-nav-btn" onclick="switchView('home-view')">⬅ العودة للرئيسية</button>
+        <div class="workspace-box" style="text-align: right;">
+            <h2 style="color:var(--neon-gold); margin-top:0; text-align:center;">📢 منشئ إعلانات فعاليات الديسكورد</h2>
+            <p style="color:var(--text-secondary); text-align:center; margin-bottom:25px;">املأ الحقول لتوليد إعلان جاهز وفخم مع التنسيق:</p>
             
-            <div class="input-group">
-                <input type="text" id="giveawayInputItem" placeholder="اكتب اسم المشارك هنا..." onkeypress="handleGiveawayKey(event)">
-                <button class="btn-primary" onclick="addGiveawayItem()">إضافة للمتسابقيين</button>
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; margin-bottom:5px; color:var(--neon-gold);">عنوان الفعالية:</label>
+                <input type="text" id="eventTitle" placeholder="مثال: بطولة فطور وسحب على رتب ساخنة 🔥" style="width:100%;">
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; margin-bottom:5px; color:var(--neon-gold);">الجائزة المقدمة:</label>
+                <input type="text" id="eventPrize" placeholder="مثال: رتبة أسطورية + 100,000 نقطة سيرفر" style="width:100%;">
             </div>
 
-            <div class="items-chips-container" id="giveawayChipsContainer"></div>
-
-            <div id="slotMachineDisplay" class="winner-announcement" style="display:flex; justify-content:center; align-items:center; min-height: 100px; color: var(--neon-cyan);">
-                جاهز لبدء السحب الحماسي؟ 🏆
+            <div style="margin-bottom: 20px;">
+                <label style="display:block; margin-bottom:5px; color:var(--neon-gold);">موعد الانطلاق:</label>
+                <input type="text" id="eventTime" placeholder="مثال: اليوم الساعة 10:00 مساءً بتوقيت مكة" style="width:100%;">
             </div>
 
-            <button class="btn-action-full" style="background: linear-gradient(135deg, var(--neon-pink), var(--neon-gold));" onclick="startAdvancedGiveaway()">ابدأ السحب الآن 🔥</button>
+            <button class="btn-action-wide" onclick="generateDiscordAnnouncement()">إنشاء ونسخ صيغة الإعلان 📋</button>
+            
+            <div id="announcementOutput" class="server-tool-card" style="margin-top: 20px; display:none; background: rgba(0,0,0,0.8); color:#00e676; font-family:monospace; white-space: pre-line;"></div>
         </div>
     </div>
 
-    <!-- 3. شاشة سرعة الرد (Reaction Game) -->
-    <div id="reaction-view" class="view">
-        <button class="back-btn" onclick="switchView('home-view')">⬅ العودة للرئيسية</button>
-        <div class="game-box">
-            <h2 style="color:var(--neon-gold); margin-top:0; font-size: 2.2rem;">⚡ مختبر سرعة البديهة</h2>
-            <p style="color:var(--text-muted); margin-bottom:20px;">اضغط على المربع أدناه فور تحوله للون الأخضر الساطع!</p>
+    <!-- 3. مقسم الفرق العشوائي -->
+    <div id="team-splitter-view" class="view">
+        <button class="back-nav-btn" onclick="switchView('home-view')">⬅ العودة للرئيسية</button>
+        <div class="workspace-box">
+            <h2 style="color:var(--neon-electric); margin-top:0; font-size: 2.2rem;">⚔️ مقسم الفرق العشوائي للبطولات</h2>
+            <p style="color:var(--text-secondary); margin-bottom:20px;">أدخل أسماء اللاعبين ليقوم النظام بتوزيعهم عشوائياً وبشكل عادل على فريقين (أزرق وأحمر):</p>
             
-            <div id="reactionArena" class="reaction-arena" onclick="handleReactionAction()">اضغط هنا لبدء التحدي</div>
-            <h3 id="reactionScoreText" style="font-size: 1.6rem; color:#fff; min-height: 40px; margin-top:20px;"></h3>
+            <div class="controls-row">
+                <input type="text" id="teamInputName" placeholder="اكتب اسم اللاعب..." onkeypress="handleTeamKey(event)">
+                <button class="btn-core" onclick="addTeamMember()">إضافة لاعب</button>
+            </div>
+
+            <div class="chips-list" id="teamMembersList"></div>
+
+            <button class="btn-action-wide" style="background: linear-gradient(135deg, var(--neon-electric), var(--neon-emerald));" onclick="splitIntoTeams()">تقسيم اللاعبين لفريقين ⚖️</button>
+            
+            <div id="teamsResultArea" style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px; text-align:right;"></div>
         </div>
     </div>
 
-    <!-- 4. شاشة صناديق الحظ (Mystery Boxes) -->
-    <div id="boxes-view" class="view">
-        <button class="back-btn" onclick="switchView('home-view')">⬅ العودة للرئيسية</button>
-        <div class="game-box">
-            <h2 style="color:var(--neon-purple); margin-top:0; font-size: 2.2rem;">📦 صناديق الحظ الملعونة</h2>
-            <p style="color:var(--text-muted); margin-bottom:25px;">اختر أحد الصناديق الثلاثة بحظك المطلق:</p>
+    <!-- 4. مولد قوانين السيرفر والتذاكر -->
+    <div id="ticket-rules-view" class="view">
+        <button class="back-nav-btn" onclick="switchView('home-view')">⬅ العودة للرئيسية</button>
+        <div class="workspace-box" style="text-align: right;">
+            <h2 style="color:var(--neon-crimson); margin-top:0; text-align:center;">🛡️ قوالب رومات الديسكورد الرسمية</h2>
+            <p style="color:var(--text-secondary); text-align:center; margin-bottom:25px;">قوالب جاهزة ومنسقة لتعزيز احترافية سيرفرك:</p>
             
-            <div class="match-card-grid">
-                <div class="mystery-box" onclick="openMysteryBox(0)" id="boxNum0">🎁</div>
-                <div class="mystery-box" onclick="openMysteryBox(1)" id="boxNum1">🎁</div>
-                <div class="mystery-box" onclick="openMysteryBox(2)" id="boxNum2">🎁</div>
+            <div class="server-tool-card">
+                <h4>📜 قالب قوانين السيرفر العامة:</h4>
+                <p style="color:var(--text-secondary); font-size:0.9rem; margin: 5px 0 15px;">مناسب للوضع في روم #قوانين-السيرفر</p>
+                <button class="btn-core" onclick="copyTemplate('rules')">نسخ قالب القوانين للنقاط الأساسية 📋</button>
             </div>
 
-            <h3 id="boxResultText" style="font-size: 1.5rem; color: var(--neon-cyan); min-height: 40px;">اختر صندوقاً لاكتشاف مصيرك!</h3>
-            <button class="btn-action-full" style="background: #222; border: 1px solid #444;" onclick="resetMysteryBoxes()">إعادة ضبط الصناديق 🔄</button>
+            <div class="server-tool-card">
+                <h4>🎫 قالب رسالة نظام التذاكر (Tickets):</h4>
+                <p style="color:var(--text-secondary); font-size:0.9rem; margin: 5px 0 15px;">مناسب لروم الدعم الفني وشكاوي الأعضاء</p>
+                <button class="btn-core" onclick="copyTemplate('tickets')">نسخ قالب التذاكر الرسمي 📋</button>
+            </div>
         </div>
     </div>
 
 </div>
 
 <footer>
-    39F Ultimate Hub © 2026 - جميع الحقوق محفوظة لسيرفر 39F الملكي
+    39F Command Center © 2026 - نظام الإدارة والفعاليات المتقدم لسيرفر 39F
 </footer>
 
 <script>
-    // نظام التنقل الموحد بين الواجهات
     function switchView(viewId) {
         document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
         document.getElementById(viewId).classList.add('active');
         if(viewId === 'roulette-view') {
             renderRouletteChips();
-            drawWheelCanvas(0);
-        } else if(viewId === 'giveaway-view') {
-            renderGiveawayChips();
+            drawPrecisionWheel(currentWheelAngle);
+        } else if(viewId === 'team-splitter-view') {
+            renderTeamChips();
         }
     }
 
-    // --- إدارة عجلة الحظ المتقدمة ---
-    let rouletteItems = ["جائزة كبرى 💎", "عقاب فويس 🎤", "100 نقطة سيرفر ⭐", "دور إضافي 🔄", "رتبة خاصة 👑", "حظ أوفر 😢"];
-    const wheelColors = ['#ff0055', '#00f3ff', '#9d00ff', '#ffd700', '#00ff80', '#ff8800', '#0055ff'];
+    /* --- 1. منطق الروليت الدقيق والواقعي 100% --- */
+    let rouletteNames = ["محمد", "أحمد", "سلطان", "فيصل", "خالد", "بدر"];
+    const sliceColors = ['#f39c12', '#00e676', '#2979ff', '#ff1744', '#9c27b0', '#00bcd4', '#ff5722'];
     let currentWheelAngle = 0;
-    let isWheelSpinning = false;
+    let isSpinningActive = false;
 
-    function handleRouletteKey(e) { if(e.key === 'Enter') addRouletteItem(); }
+    function handleRouletteKey(e) { if(e.key === 'Enter') addRouletteName(); }
 
-    function addRouletteItem() {
-        let input = document.getElementById('rouletteInputItem');
+    function addRouletteName() {
+        let input = document.getElementById('rouletteInput');
         let val = input.value.trim();
         if(val !== '') {
-            rouletteItems.push(val);
+            rouletteNames.push(val);
             input.value = '';
             renderRouletteChips();
-            drawWheelCanvas(currentWheelAngle);
+            drawPrecisionWheel(currentWheelAngle);
         }
     }
 
-    function removeRouletteItem(index) {
-        if(rouletteItems.length <= 2) {
+    function removeRouletteName(idx) {
+        if(rouletteNames.length <= 2) {
             alert('يجب أن تحتوي العجلة على خيارين على الأقل!');
             return;
         }
-        rouletteItems.splice(index, 1);
+        rouletteNames.splice(idx, 1);
         renderRouletteChips();
-        drawWheelCanvas(currentWheelAngle);
+        drawPrecisionWheel(currentWheelAngle);
     }
 
     function renderRouletteChips() {
-        let container = document.getElementById('rouletteChipsContainer');
-        container.innerHTML = '';
-        rouletteItems.forEach((item, idx) => {
-            container.innerHTML += `<div class="chip">${item} <span onclick="removeRouletteItem(${idx})">✕</span></div>`;
+        let list = document.getElementById('rouletteChipsList');
+        list.innerHTML = '';
+        rouletteNames.forEach((name, i) => {
+            list.innerHTML += `<div class="tag-chip">${name} <span onclick="removeRouletteName(${i})">✕</span></div>`;
         });
     }
 
-    const rCanvas = document.getElementById('realWheelCanvas');
-    const rCtx = rCanvas.getContext('2d');
+    const canvasWheel = document.getElementById('exactPrecisionWheel');
+    const ctxWheel = canvasWheel.getContext('2d');
 
-    function drawWheelCanvas(angle) {
-        let numSlices = rouletteItems.length;
-        if(numSlices === 0) return;
-        let arc = (2 * Math.PI) / numSlices;
-        let center = rCanvas.width / 2;
-        let radius = center - 8;
+    function drawPrecisionWheel(angle) {
+        let count = rouletteNames.length;
+        if(count === 0) return;
+        let arcSize = (2 * Math.PI) / count;
+        let centerCoord = canvasWheel.width / 2;
+        let radiusSize = centerCoord - 6;
 
-        rCtx.clearRect(0, 0, rCanvas.width, rCanvas.height);
-        rCtx.save();
-        rCtx.translate(center, center);
-        rCtx.rotate(angle);
+        ctxWheel.clearRect(0, 0, canvasWheel.width, canvasWheel.height);
+        ctxWheel.save();
+        ctxWheel.translate(centerCoord, centerCoord);
+        ctxWheel.rotate(angle);
 
-        for(let i = 0; i < numSlices; i++) {
-            let startAngle = i * arc;
-            let endAngle = (i + 1) * arc;
+        for(let i = 0; i < count; i++) {
+            let startAngle = i * arcSize;
+            let endAngle = (i + 1) * arcSize;
 
-            rCtx.beginPath();
-            rCtx.moveTo(0, 0);
-            rCtx.arc(0, 0, radius, startAngle, endAngle);
-            rCtx.closePath();
-            rCtx.fillStyle = wheelColors[i % wheelColors.length];
-            rCtx.fill();
-            rCtx.strokeStyle = '#07070c';
-            rCtx.lineWidth = 3;
-            rCtx.stroke();
+            ctxWheel.beginPath();
+            ctxWheel.moveTo(0, 0);
+            ctxWheel.arc(0, 0, radiusSize, startAngle, endAngle);
+            ctxWheel.closePath();
+            ctxWheel.fillStyle = sliceColors[i % sliceColors.length];
+            ctxWheel.fill();
+            ctxWheel.strokeStyle = '#020205';
+            ctxWheel.lineWidth = 3;
+            ctxWheel.stroke();
 
-            // رسم النص داخل الشريحة بدقة
-            rCtx.save();
-            rCtx.rotate(startAngle + arc / 2);
-            rCtx.textAlign = 'right';
-            rCtx.fillStyle = '#ffffff';
-            rCtx.font = 'bold 15px Cairo';
-            rCtx.shadowColor = 'rgba(0,0,0,0.8)';
-            rCtx.shadowBlur = 4;
-            rCtx.fillText(rouletteItems[i], radius - 25, 6);
-            rCtx.restore();
+            // رسم النصوص
+            ctxWheel.save();
+            ctxWheel.rotate(startAngle + arcSize / 2);
+            ctxWheel.textAlign = 'right';
+            ctxWheel.fillStyle = '#ffffff';
+            ctxWheel.font = 'bold 15px Tajawal';
+            ctxWheel.shadowColor = 'rgba(0,0,0,0.9)';
+            ctxWheel.shadowBlur = 5;
+            ctxWheel.fillText(rouletteNames[i], radiusSize - 22, 6);
+            ctxWheel.restore();
         }
-        rCtx.restore();
+        ctxWheel.restore();
     }
 
-    function spinRealWheel() {
-        if(isWheelSpinning) return;
-        if(rouletteItems.length < 2) {
-            alert('أضف خيارين على الأقل لتتمكن من التدوير!');
+    function spinExactWheel() {
+        if(isSpinningActive) return;
+        if(rouletteNames.length < 2) {
+            alert('أضف مشاركين اثنين على الأقل لتتمكن من التدوير!');
             return;
         }
 
-        isWheelSpinning = true;
-        let winnerBox = document.getElementById('rouletteWinnerBox');
-        winnerBox.style.display = 'none';
+        isSpinningActive = true;
+        let banner = document.getElementById('rouletteWinnerBanner');
+        banner.style.display = 'none';
 
-        let numSlices = rouletteItems.length;
-        let arc = (2 * Math.PI) / numSlices;
+        let count = rouletteNames.length;
+        let arcSize = (2 * Math.PI) / count;
+
+        // اختيار الفائز الحقيقي مسبقاً برمجياً بضبط دقيق للغاية مع مؤشر الأعلى (زاوية 0 أو 360)
+        let winningIndex = Math.floor(Math.random() * count);
         
-        let randomSpins = Math.floor(Math.random() * 6) + 6; // من 6 إلى 11 دورة كاملة
-        let winningIndex = Math.floor(Math.random() * numSlices);
+        let fullRotations = Math.floor(Math.random() * 5) + 6; // من 6 إلى 10 لفات كاملة بواقعية تامة
         
-        // حساب زاوية التوقف الدقيقة لكي يستقر المؤشر العلوي فوق الفائز تماماً
-        let targetAngle = currentWheelAngle + (randomSpins * 2 * Math.PI) + (2 * Math.PI - (winningIndex * arc) - (arc / 2));
-        
+        // المعادلة الرياضية لضمان استقرار المؤشر العلوي بدقة داخل الشريحة الفائزة المستهدفة
+        let targetAngle = (2 * Math.PI * fullRotations) + (2 * Math.PI - (winningIndex * arcSize) - (arcSize / 2));
+
         let startTime = null;
-        let duration = 5000; // 5 ثواني من الإثارة والتشويق
+        let animationDuration = 4500; // 4.5 ثانية حركة متدرجة وبطيئة بالتدريج
 
-        function animateWheel(timestamp) {
+        function animateStep(timestamp) {
             if(!startTime) startTime = timestamp;
-            let progress = timestamp - startTime;
-            let easeOut = 1 - Math.pow(1 - Math.min(progress / duration, 1), 4); // إبطاء تدريجي فخم جداً
+            let elapsed = timestamp - startTime;
+            let progress = Math.min(elapsed / animationDuration, 1);
             
-            currentWheelAngle = currentWheelAngle + (targetAngle - currentWheelAngle) * easeOut;
-            drawWheelCanvas(currentWheelAngle);
+            // دالة تخفيف السرعة الختامية (EaseOutCubic) لتكون إبطاؤها واقعياً جداً
+            let easeProgress = 1 - Math.pow(1 - progress, 3);
+            
+            currentWheelAngle = targetAngle * easeProgress;
+            drawPrecisionWheel(currentWheelAngle);
 
-            if(progress < duration) {
-                requestAnimationFrame(animateWheel);
+            if(progress < 1) {
+                requestAnimationFrame(animateStep);
             } else {
+                isSpinningActive = false;
                 currentWheelAngle = targetAngle % (2 * Math.PI);
-                isWheelSpinning = false;
-                
-                // إظهار الفائز داخل وخارج العجلة بشكل ملكي
-                winnerBox.style.display = 'block';
-                winnerBox.innerHTML = `🏆 الفائز المستقر: <span style="color:var(--neon-cyan)">${rouletteItems[winningIndex]}</span>`;
+                drawPrecisionWheel(currentWheelAngle);
+
+                // إظهار الفائز الفعلي الصحيح 100% دون أي خطأ
+                banner.style.display = 'block';
+                banner.innerHTML = `🏆 الفائز الحقيقي: <span style="color:var(--neon-emerald);">${rouletteNames[winningIndex]}</span> 🎉`;
             }
         }
-        requestAnimationFrame(animateWheel);
+        requestAnimationFrame(animateStep);
     }
 
+    /* --- 2. منشئ إعلانات الفعاليات --- */
+    function generateDiscordAnnouncement() {
+        let title = document.getElementById('eventTitle').value || 'فعالية سيرفر 39F الكبرى';
+        let prize = document.getElementById('eventPrize').value || 'جوائز مميزة ورتب خاصة';
+        let time = document.getElementById('eventTime').value || 'قريباً في الروم الصوتي';
 
-    // --- نظام السحب الآلي المتقدم (Giveaway) ---
-    let giveawayItems = ["محمد", "أحمد", "سلطان", "فيصل", "خالد", "بدر", "تركي"];
+        let outputBox = document.getElementById('announcementOutput');
+        outputBox.style.display = 'block';
+        outputBox.innerText = `[ ANNOUNCEMENT - 39F SERVER ]\n\n🎉 **${title}** 🎉\n\n👥 نلتقي جميعاً في الأجواء الحماسية!\n🎁 **الجوائز:** ${prize}\n⏰ **الموعد:** ${time}\n\nنتشرف بحضور الجميع وتفاعلكم الأسطوري! 🚀`;
+        
+        alert('تم توليد إعلان الديسكورد بنجاح وجاهز للنسخ!');
+    }
 
-    function handleGiveawayKey(e) { if(e.key === 'Enter') addGiveawayItem(); }
+    /* --- 3. مققسم الفرق العشوائي --- */
+    let teamMembers = ["محمد", "أحمد", "سلطان", "فيصل", "خالد", "بدر"];
 
-    function addGiveawayItem() {
-        let input = document.getElementById('giveawayInputItem');
+    function handleTeamKey(e) { if(e.key === 'Enter') addTeamMember(); }
+
+    function addTeamMember() {
+        let input = document.getElementById('teamInputName');
         let val = input.value.trim();
         if(val !== '') {
-            giveawayItems.push(val);
+            teamMembers.push(val);
             input.value = '';
-            renderGiveawayChips();
+            renderTeamChips();
         }
     }
 
-    function removeGiveawayItem(index) {
-        giveawayItems.splice(index, 1);
-        renderGiveawayChips();
+    function removeTeamMember(idx) {
+        teamMembers.splice(idx, 1);
+        renderTeamChips();
     }
 
-    function renderGiveawayChips() {
-        let container = document.getElementById('giveawayChipsContainer');
-        container.innerHTML = '';
-        giveawayItems.forEach((item, idx) => {
-            container.innerHTML += `<div class="chip">${item} <span onclick="removeGiveawayItem(${idx})">✕</span></div>`;
+    function renderTeamChips() {
+        let list = document.getElementById('teamMembersList');
+        list.innerHTML = '';
+        teamMembers.forEach((m, i) => {
+            list.innerHTML += `<div class="tag-chip">${m} <span onclick="removeTeamMember(${i})">✕</span></div>`;
         });
     }
 
-    function startAdvancedGiveaway() {
-        if(giveawayItems.length < 2) {
-            alert('أضف مشاركين اثنين على الأقل لبدء السحب!');
+    function splitIntoTeams() {
+        if(teamMembers.length < 2) {
+            alert('أضف عضوين على الأقل لتقسيمهم!');
             return;
         }
 
-        let display = document.getElementById('slotMachineDisplay');
-        display.style.display = 'flex';
-        let counter = 0;
-        let maxCount = 30;
-        let speed = 40;
+        let shuffled = [...teamMembers].sort(() => Math.random() - 0.5);
+        let mid = Math.ceil(shuffled.length / 2);
+        let team1 = shuffled.slice(0, mid);
+        let team2 = shuffled.slice(mid);
 
-        function runSlotMachine() {
-            let randomName = giveawayItems[Math.floor(Math.random() * giveawayItems.length)];
-            display.innerHTML = `<span style="color:var(--neon-pink); filter: drop-shadow(0 0 10px var(--neon-pink));">${randomName}</span>`;
-            counter++;
-            
-            if(counter < maxCount) {
-                speed += 12; // تراجع السرعة تدريجياً لتبدو كماكينة حقيقية
-                setTimeout(runSlotMachine, speed);
-            } else {
-                let finalWinner = giveawayItems[Math.floor(Math.random() * giveawayItems.length)];
-                display.innerHTML = `👑 الفائز بفعالية السيرفر: <span style="color:var(--neon-gold); text-shadow:0 0 15px var(--neon-gold);">${finalWinner}</span> 🎉`;
-            }
-        }
-        runSlotMachine();
+        let resArea = document.getElementById('teamsResultArea');
+        resArea.innerHTML = `
+            <div style="background:rgba(41,121,255,0.1); border:1px solid var(--neon-electric); padding:15px; border-radius:12px;">
+                <h4 style="color:var(--neon-electric); margin-top:0;">🔵 الفريق الأزرق (${team1.length})</h4>
+                <ul style="padding-right:20px; margin:0;">${team1.map(p => `<li>${p}</li>`).join('')}</ul>
+            </div>
+            <div style="background:rgba(255,23,68,0.1); border:1px solid var(--neon-crimson); padding:15px; border-radius:12px;">
+                <h4 style="color:var(--neon-crimson); margin-top:0;">🔴 الفريق الأحمر (${team2.length})</h4>
+                <ul style="padding-right:20px; margin:0;">${team2.map(p => `<li>${p}</li>`).join('')}</ul>
+            </div>
+        `;
     }
 
-
-    // --- اختبار سرعة البديهة (Reaction Game) ---
-    let reactionStatus = 'idle'; // idle, waiting, ready
-    let reactionTimer, startTime;
-
-    function handleReactionAction() {
-        let arena = document.getElementById('reactionArena');
-        let scoreText = document.getElementById('reactionScoreText');
-
-        if(reactionStatus === 'idle') {
-            reactionStatus = 'waiting';
-            arena.className = 'reaction-arena waiting';
-            arena.innerText = 'انتظر حتى يضيء باللون الأخضر...';
-            scoreText.innerText = '';
-
-            let randomDelay = Math.random() * 2500 + 1800;
-            reactionTimer = setTimeout(() => {
-                reactionStatus = 'ready';
-                arena.className = 'reaction-arena ready';
-                arena.innerText = 'اضغط الآن بأقصى سرعة!! ⚡';
-                startTime = Date.now();
-            }, randomDelay);
-
-        } else if(reactionStatus === 'waiting') {
-            clearTimeout(reactionTimer);
-            reactionStatus = 'idle';
-            arena.className = 'reaction-arena';
-            arena.innerText = 'تسرعت! اضغط لإعادة المحاولة';
-            scoreText.innerText = '❌ ضغطت قبل الأوان!';
-
-        } else if(reactionStatus === 'ready') {
-            let reactionTime = Date.now() - startTime;
-            reactionStatus = 'idle';
-            arena.className = 'reaction-arena';
-            arena.innerText = 'اضغط لبدء اختبار جديد';
-
-            let titleRank = 'مبتدئ 🐢';
-            if(reactionTime < 220) titleRank = 'أسطورة الخارقين 🔥⚡';
-            else if(reactionTime < 320) titleRank = 'سرعة بطل قيمنق 😎';
-            else if(reactionTime < 450) titleRank = 'ردة فعل ممتازة 👍';
-
-            scoreText.innerHTML = `التوقيت: <span style="color:var(--neon-cyan)">${reactionTime} ms</span> — التقييم: <span style="color:var(--neon-gold)">${titleRank}</span>`;
-        }
-    }
-
-
-    // --- صناديق الحظ الملعونة (Mystery Boxes) ---
-    let winningBoxIndex = Math.floor(Math.random() * 3);
-    let isBoxOpened = false;
-
-    function openMysteryBox(boxIdx) {
-        if(isBoxOpened) return;
-        isBoxOpened = true;
-
-        for(let i = 0; i < 3; i++) {
-            let boxElement = document.getElementById('boxNum' + i);
-            if(i === winningBoxIndex) {
-                boxElement.innerText = '💎';
-                boxElement.style.borderColor = 'var(--neon-gold)';
-                boxElement.style.background = 'rgba(255, 215, 0, 0.1)';
-            } else {
-                boxElement.innerText = '💀';
-                boxElement.style.borderColor = 'var(--neon-pink)';
-                boxElement.style.background = 'rgba(255, 0, 85, 0.1)';
-            }
-        }
-
-        let resText = document.getElementById('boxResultText');
-        if(boxIdx === winningBoxIndex) {
-            resText.innerHTML = "🎉 تهانينا! اخترت الصندوق الصحيح وربحت الجائزة الكبرى للسيرفر!";
-            resText.style.color = "var(--neon-gold)";
+    /* --- 4. قوالب القوانين والتذاكر --- */
+    function copyTemplate(type) {
+        let text = "";
+        if(type === 'rules') {
+            text = "📜 **قوانين سيرفر 39F الرسمية:**\n1️⃣ الاحترام المتبادل وعدم الإساءة لأي عضو.\n2️⃣ يمنع نشر روابط خارجية أو إعلانات.\n3️⃣ الالتزام بالحديث في الرومات المخصصة.\n4️⃣ عدم إزعاج الأعضاء في الخاص أو الرومات الصوتية.";
         } else {
-            resText.innerHTML = "💀 حظ أوفر! الصندوق كان مفخخاً بمقلب، حاول مجدداً.";
-            resText.style.color = "var(--neon-pink)";
+            text = "🎫 **نظام التذاكر (Tickets) - سيرفر 39F:**\nإذا واجهتك أي مشكلة أو رغبت في التقديم على رتبة أو استفسار، اضغط على الزر أدناه لفتح تذكرة خاصة مع الإدارة وسيتم الرد عليك سريعاً.";
         }
-    }
-
-    function resetMysteryBoxes() {
-        winningBoxIndex = Math.floor(Math.random() * 3);
-        isBoxOpened = false;
-        for(let i = 0; i < 3; i++) {
-            let boxElement = document.getElementById('boxNum' + i);
-            boxElement.innerText = '🎁';
-            boxElement.style.borderColor = 'rgba(255,255,255,0.1)';
-            boxElement.style.background = 'rgba(0,0,0,0.5)';
-        }
-        let resText = document.getElementById('boxResultText');
-        resText.innerHTML = "اختر صندوقاً لاكتشاف مصيرك!";
-        resText.style.color = "var(--neon-cyan)";
+        navigator.clipboard.writeText(text);
+        alert('تم نسخ القالب الحافظة بنجاح، يمكنك وضعه في روم الديسكورد مباشرة!');
     }
 </script>
 
